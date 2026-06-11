@@ -1,0 +1,27 @@
+
+\section*{MoE in Drug Discovery and Genomics}
+\addcontentsline{toc}{section}{MoE in Drug Discovery and Genomics}
+
+Drug discovery and genomics present unique challenges for machine learning: molecular data is inherently multi-scale (atoms, bonds, molecules, proteins, pathways), biological relationships are complex and context-dependent, and the optimization objectives are often conflicting (efficacy versus toxicity, selectivity versus promiscuity). MoE architectures are particularly well-suited to these challenges, as they can naturally decompose complex biological prediction tasks into specialized sub-problems.
+
+\subsection*{Molecular property prediction}
+
+Predicting the properties of drug candidates is a central task in computational drug discovery. Different molecular properties (solubility, toxicity, binding affinity, metabolic stability) depend on different structural features and physicochemical principles. MoE architectures enable the construction of models where different experts specialize in different molecular property domains, allowing the model to capture property-specific structure-activity relationships without interference.
+
+\cite{acharya2025mobius} developed M\"{o}bius, a Mixture-of-Experts Transformer for epigenetic analysis in the context of Myalgic Encephalomyelitis/Chronic Fatigue Syndrome (ME/CFS) and Long COVID. The architecture employs specialized experts for different epigenetic marks (DNA methylation, histone modifications, chromatin accessibility) and integrates their predictions through a learned gating mechanism that captures the combinatorial effects of multiple epigenetic changes. This multi-expert approach identified epigenetic signatures that distinguished ME/CFS patients from controls with significantly higher accuracy than single-modality models, demonstrating the value of MoE in capturing the multi-layered nature of biological regulation.
+
+\subsection*{Multi-task drug discovery}
+
+The drug discovery pipeline involves numerous prediction tasks: target identification, hit discovery, lead optimization, ADMET (absorption, distribution, metabolism, excretion, toxicity) profiling, and clinical trial outcome prediction. Traditional approaches train separate models for each task, missing the opportunity for transfer learning across related tasks. MoE-based multi-task architectures address this by maintaining shared experts that capture common molecular representations alongside task-specific experts that focus on particular prediction objectives.
+
+\cite{ma2024moe_single_cell} demonstrated the application of MoE to single-cell multi-omics integration, where different experts process different data modalities (transcriptomics, epigenomics, proteomics) and are integrated through modality-aware gating. This approach enables the construction of unified cellular representations from heterogeneous data sources, a capability that is increasingly important for target validation and mechanism-of-action studies in drug discovery.
+
+\subsection*{Drug-drug interaction prediction}
+
+Predicting drug-drug interactions (DDIs) is critical for patient safety, as polypharmacy is common among elderly patients and those with chronic diseases. MoE architectures for DDI prediction employ separate experts for different interaction mechanisms (pharmacokinetic, pharmacodynamic, pharmaceutical), enabling the model to distinguish between different types of interactions and provide mechanistically interpretable predictions \cite{wei2024moe_drug_combination}. The expert-level decomposition aligns with clinical pharmacology, where DDIs are classified by their underlying mechanisms, and enables more targeted clinical decision support.
+
+\subsection*{Genomic analysis and variant interpretation}
+
+The interpretation of genomic variants requires integrating multiple sources of evidence: evolutionary conservation, protein structure, regulatory annotations, and population frequency. MoE architectures have been applied to variant pathogenicity prediction by routing variants through experts specialized in different functional categories (coding, regulatory, structural) and genomic contexts. This approach mirrors the deliberative process of clinical geneticists, who consider variant type, location, and functional impact when assessing pathogenicity.
+
+In single-cell genomics, MoE-based approaches have been developed for cell type annotation, batch correction, and trajectory inference. The scMoE framework \cite{yun2024scmoe} applies sparse MoE to single-cell multi-modal data, where different experts handle different data modalities (gene expression, chromatin accessibility, surface protein levels) and different cell types, enabling simultaneous multi-modal integration and cell type-aware analysis. This approach is particularly relevant for drug target discovery, where understanding cell-type-specific gene expression patterns is essential for identifying targets with favorable efficacy and safety profiles.

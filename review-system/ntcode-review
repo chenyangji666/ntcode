@@ -1,0 +1,26 @@
+#!/bin/bash
+# NTCode 综述写作系统启动脚本
+# 用法: ./ntcode-review "综述主题"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ -z "$1" ]; then
+    echo "用法: $0 '综述主题'"
+    echo "示例: $0 '单细胞转录组在肿瘤免疫微环境中的应用进展'"
+    exit 1
+fi
+
+# 检查 Python 环境
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Python3 未安装"
+    exit 1
+fi
+
+# 检查 LaTeX 环境
+if ! command -v pdflatex &> /dev/null; then
+    echo "⚠️  pdflatex 未安装，PDF编译将跳过"
+    echo "  安装命令: sudo apt install texlive-full"
+fi
+
+# 运行综述写作
+python3 "$SCRIPT_DIR/scripts/main.py" "$@"

@@ -1,0 +1,58 @@
+\section{Stage III: Pseudo Single-Cell Reconstruction}
+\label{sec:stage3}
+
+While deconvolution (Stage~I) estimates proportions and mapping (Stage~II) places reference cells in space, neither produces \emph{de novo} per-cell expression profiles at sub-spot coordinates. Stage~III methods---which we term \emph{pseudo single-cell reconstruction}---aim to synthesise complete gene-expression vectors for individual cells within each spot, effectively transforming spot-level spatial transcriptomics into data that resemble single-cell resolution. This is the most ambitious and most easily over-claimed stage of the pipeline; we therefore devote particular attention to what these methods can and cannot reliably infer (Box~1).
+
+The reconstruction task can be formalised as follows. Given a spot $s$ with observed expression $\mathbf{x}_s$ and an estimated cell composition $\{(k_i, \hat{n}_i)\}_{i=1}^{N_s}$ from Stage~I, the goal is to produce expression vectors $\{\hat{\mathbf{g}}_i\}_{i=1}^{N_s}$ such that $\sum_i \hat{\mathbf{g}}_i \approx \mathbf{x}_s$ and each $\hat{\mathbf{g}}_i$ is biologically plausible for cell type $k_i$. The problem is fundamentally under-determined: infinitely many decompositions satisfy the sum constraint. Methods differ in how they regularise the solution space.
+
+\subsection{Resampling and template-based reconstruction}
+
+The simplest strategy draws expression templates from the scRNA-seq reference and assigns them to spots proportionally.
+
+\textbf{Redeconve} \citep{zhang2024redeconve} formulates reconstruction as sparse non-negative least squares (NNLS): for each spot, it selects a small subset of reference cells whose weighted combination best explains the observed spot expression. The sparsity constraint acts as a regulariser, favouring solutions that use few distinct profiles rather than diffuse mixtures. Redeconve is computationally efficient and deterministic, but its output is bounded by the diversity of the reference---it cannot generate expression states not already present in the atlas.
+
+\textbf{SPROUT} extends the resampling idea by incorporating spatial neighbourhood information: cells assigned to adjacent spots are encouraged to have correlated expression, reflecting the biological expectation that microenvironments vary smoothly. This spatial prior reduces artefactual discontinuities at spot boundaries but introduces a smoothing bias that may obscure sharp biological transitions (e.g., tumour--stroma interfaces).
+
+\subsection{Generative reconstruction}
+
+Generative methods learn a probabilistic model of single-cell expression and sample from it conditioned on the spatial observations.
+
+\textbf{SpatialScope} \citep{shengquan2023spatialscope} uses a diffusion-based generative model trained on the scRNA-seq reference. Given a spot's observed expression and its deconvolution result, SpatialScope iteratively denoises latent representations to produce per-cell expression vectors that are both consistent with the spot total and lie on the learned single-cell manifold. The diffusion framework naturally handles multi-modality in expression space---for instance, generating distinct profiles for resting and activated T~cells within the same spot---and provides a principled way to sample multiple plausible reconstructions, enabling uncertainty assessment.
+
+\textbf{Bulk2Space} takes a related but simpler approach, training a variational autoencoder (VAE) on reference cells and then using the decoder to generate spatial single-cell profiles conditioned on deconvolution outputs. While faster than diffusion models, the VAE's tendency toward posterior collapse can produce overly smooth reconstructions that underestimate biological variability.
+
+\subsection{Optimisation under reference and image constraints}
+
+The most recent methods combine multiple information sources---scRNA-seq reference, spatial expression, and histology images---in a joint optimisation framework.
+
+\textbf{CellMap} \citep{cellmap2026} formulates reconstruction as an optimal-transport problem: it seeks a mapping from reference cells to spatial positions that minimises a combined cost function incorporating expression similarity, spatial coherence, and (optionally) image-derived cell-density priors. The optimal-transport formulation guarantees a globally consistent assignment and naturally handles the constraint that the total reconstructed expression must match the observed spot signal.
+
+\textbf{CellRefiner} \citep{cellrefiner2026} takes an iterative refinement approach. Starting from an initial reconstruction (e.g., from Redeconve or CytoSPACE), it uses H\&E image segmentation to estimate per-spot cell counts and positions, then alternates between (i) updating expression assignments given positions and (ii) refining positions given expression, converging to a solution that is consistent with both molecular and morphological evidence. CellRefiner's explicit use of histology makes it particularly effective on tissues where cell morphology is informative (e.g., distinguishing epithelial from stromal cells by nuclear shape).
+
+\input{boxes/box1-can-cannot}
+
+\subsection{Validation against high-resolution ground truth}
+
+Evaluating pseudo single-cell reconstruction is inherently difficult because ground truth---true per-cell expression at known spatial coordinates---is rarely available. Current validation strategies include:
+
+\begin{enumerate}
+  \item \textbf{Matched imaging-based ST}: comparing reconstructed profiles against MERFISH or Xenium measurements on serial sections from the same tissue. This provides the most direct validation but is limited to the gene panel of the imaging platform (typically 100--1{,}000 genes).
+  \item \textbf{In silico mixing benchmarks}: computationally aggregating annotated single cells into synthetic spots, running reconstruction, and measuring recovery of the original per-cell profiles. While controlled, these benchmarks do not capture real platform effects or tissue-specific confounders.
+  \item \textbf{Downstream biological consistency}: assessing whether reconstructed data recapitulate known biology---for example, whether ligand--receptor pairs are correctly localised to interacting cell types, or whether spatial gene-expression gradients match ISH (in situ hybridisation) patterns.
+\end{enumerate}
+
+A major gap is the absence of standardised benchmark datasets and agreed-upon metrics for Stage~III evaluation. Unlike deconvolution, where RMSE and JSD on proportions are widely accepted, reconstruction quality involves both per-gene accuracy and global distributional fidelity, and no consensus metric has emerged.
+
+We caution that reconstructed cells should be treated as \emph{model outputs}, not observations. Downstream analyses---particularly differential expression testing and causal inference---must account for the additional uncertainty introduced by the reconstruction step. Reporting reconstruction confidence scores and validating key findings against orthogonal data (immunohistochemistry, smFISH) should be standard practice.
+
+\subsection{Application scenarios}
+
+Pseudo single-cell reconstruction has been applied to several biological questions where spot-level resolution is insufficient:
+
+\textbf{Tumour microenvironment dissection.} In solid tumours, immune cells, fibroblasts, and malignant cells co-exist within individual Visium spots. Reconstruction enables spatial mapping of immune-excluded versus immune-infiltrated regions at cellular resolution, identification of immunosuppressive niches (e.g., regulatory T~cells adjacent to tumour cells), and quantification of cell-type-specific ligand--receptor interactions that spot-level data conflate.
+
+\textbf{Developmental gradients.} During organogenesis, progenitor cells differentiate along spatial axes. Reconstruction can resolve expression gradients within individual developmental zones (e.g., cortical layers, intestinal crypt--villus axis) that are blurred when multiple differentiation stages occupy the same spot. This enables spatial pseudotime analysis that combines trajectory inference with physical tissue coordinates.
+
+\textbf{Spatial gene regulatory networks.} By providing per-cell expression estimates at known coordinates, reconstruction allows inference of spatially varying gene regulatory networks: identifying transcription factors whose target-gene activity differs between tissue compartments, even when the same cell type is present in both.
+
+In all cases, conclusions drawn from reconstructed data should be validated against independent measurements. The biological plausibility of results does not guarantee their accuracy, and over-interpretation remains the primary risk of Stage~III methods.

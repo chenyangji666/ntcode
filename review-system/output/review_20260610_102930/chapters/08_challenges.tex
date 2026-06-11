@@ -1,0 +1,41 @@
+
+\section*{Challenges and Limitations}
+\addcontentsline{toc}{section}{Challenges and Limitations}
+
+Despite the considerable promise of MoE architectures in healthcare, several critical challenges must be addressed before widespread clinical deployment. These challenges span technical, regulatory, and ethical dimensions, and their resolution requires interdisciplinary collaboration between machine learning researchers, clinicians, regulators, and patients.
+
+\subsection*{Interpretability and explainability}
+
+Clinical AI systems must provide interpretable explanations for their predictions to support clinical decision-making, satisfy regulatory requirements, and maintain patient trust. While MoE architectures offer a natural form of interpretability through expert specialization (the assignment of an input to a particular expert provides a form of explanation), this is often insufficient for clinical applications. The gating mechanism may not correspond to clinically meaningful categories, expert specialization may be diffuse rather than discrete, and the internal representations of individual experts may remain opaque.
+
+Recent work on intrinsically interpretable MoE, such as MoE-X \cite{chen2024moe_llm}, attempts to address this by designing MoE architectures where the expert assignments and expert computations are transparent by construction. However, the tension between model complexity and interpretability remains a fundamental challenge: the most performant MoE models often have the most complex routing mechanisms, making them the hardest to interpret. In clinical settings, this trade-off must be carefully managed, as the cost of an uninterpretable incorrect prediction can be measured in patient harm.
+
+\subsection*{Expert collapse and training instability}
+
+Expert collapse, where the gating network converges to routing most inputs through a small number of experts while neglecting others, remains a persistent challenge in MoE training. In healthcare applications, expert collapse is particularly problematic because it may result in the loss of clinically important specializations. For example, if a medical imaging MoE collapses to routing all images through a single expert, the benefits of specialized processing for rare conditions or unusual presentations are lost.
+
+Load balancing techniques \cite{fedus2022switch} mitigate but do not fully resolve this issue. In healthcare settings, the natural class imbalance (rare diseases, unusual presentations, minority populations) exacerbates the tendency toward expert collapse, as the gating network may learn to ignore experts that are rarely needed but critically important. Novel approaches such as curriculum-based expert activation, where experts are gradually introduced during training, and diversity-promoting regularization, which explicitly encourages expert specialization, are active areas of research.
+
+\subsection*{Data requirements and privacy}
+
+Training effective MoE models requires substantial data to ensure that all experts receive sufficient training signal. In healthcare, data availability is constrained by privacy regulations (HIPAA, GDPR), institutional data governance policies, and the practical challenges of data collection and annotation. The data requirements of MoE are particularly demanding because each expert must receive enough relevant training examples to develop meaningful specialization.
+
+Federated learning approaches offer a potential solution by enabling MoE training across multiple institutions without centralizing sensitive patient data. However, federated MoE training introduces additional challenges: the distribution of data across institutions may not align with the desired expert specialization, communication costs scale with the number of experts, and ensuring consistent expert assignment across distributed training nodes requires careful protocol design.
+
+\subsection*{Clinical validation and regulatory approval}
+
+The regulatory pathway for MoE-based clinical AI systems is not yet well-established. Current regulatory frameworks (FDA, CE marking) were designed primarily for single-model systems and do not explicitly address the modular, conditional nature of MoE architectures. Key regulatory questions include: How should the performance of individual experts be validated? Is it sufficient to evaluate the end-to-end system, or must each expert pathway demonstrate independent safety and efficacy? How should routing decisions be documented and audited?
+
+The conditional activation of experts in MoE models also complicates traditional clinical validation approaches. Standard evaluation metrics computed on aggregate test sets may mask poor performance on specific input subpopulations routed to particular experts. Comprehensive validation requires stratified evaluation across expert assignments, which demands larger and more diverse test sets than conventional model evaluation.
+
+\subsection*{Computational infrastructure and deployment}
+
+While MoE architectures reduce per-input computation through sparse activation, they increase total model memory requirements due to the need to store all expert parameters. In resource-constrained clinical settings, the memory overhead of MoE models may be prohibitive. Additionally, the irregular computation patterns introduced by conditional routing can reduce hardware utilization efficiency, as batch processing becomes less effective when different inputs require different computational pathways.
+
+Deployment challenges include expert load balancing in real-time serving systems, dynamic memory allocation for variable expert utilization, and the need for specialized inference engines that can efficiently implement sparse computation. These practical considerations are often overlooked in research publications but are critical for clinical deployment.
+
+\subsection*{Bias and fairness}
+
+MoE architectures may inadvertently amplify existing biases in healthcare data. If the gating network learns to route patients from different demographic groups through different experts, and these experts have unequal performance, the resulting system may exhibit disparate accuracy across populations. Furthermore, if expert specialization correlates with protected attributes (race, gender, socioeconomic status), the routing decisions themselves may constitute a form of algorithmic discrimination, even if the end-to-end performance appears equitable.
+
+Ensuring fairness in MoE-based clinical AI requires careful auditing of both expert performance and routing patterns across demographic subgroups. This analysis must be performed not only at the aggregate level but also at the level of individual routing decisions, as biases may be localized to specific expert pathways rather than distributed uniformly across the model.

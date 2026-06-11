@@ -1,0 +1,38 @@
+\section{Stage II: Single-Cell Mapping}
+\label{sec:stage2}
+
+Single-cell mapping addresses a complementary question to deconvolution: rather than estimating what fraction of each cell type occupies a spot, it asks \emph{where} individual cells from a paired scRNA-seq reference should be placed in tissue space. The output is a set of spatial coordinates assigned to real (observed) single cells, producing a spatially resolved cell atlas without synthesising new expression profiles. This stage bridges deconvolution and full reconstruction by providing a cell-level spatial layout that downstream analyses can use directly.
+
+\subsection{Tangram}
+
+Tangram \citep{biancalani2021deep} formulates mapping as a continuous optimisation problem. It learns a soft assignment matrix $\mathbf{M} \in \mathbb{R}^{C \times S}$ (cells $\times$ spots) that minimises the discrepancy between the predicted spatial expression---obtained by projecting single-cell profiles through $\mathbf{M}$---and the observed spot expression. The objective is:
+\begin{equation}
+  \min_{\mathbf{M} \geq 0} \; \left\| \mathbf{G}^\top \mathbf{M} - \mathbf{X} \right\|_F^2 + \lambda\,\mathcal{R}(\mathbf{M}),
+\end{equation}
+where $\mathbf{G}$ is the single-cell expression matrix, $\mathbf{X}$ is the spatial expression matrix, and $\mathcal{R}$ is an optional density regulariser that encourages the number of cells mapped to each spot to match an external estimate (e.g., from nuclei segmentation). Tangram is flexible: it can operate in gene-space or in a reduced PCA space, and it accepts optional cell-density priors from histology. Its main limitation is that the soft assignment does not enforce a one-to-one mapping---a single reference cell can be fractionally assigned to multiple spots---which complicates biological interpretation.
+
+\subsection{CellTrek}
+
+CellTrek \citep{wei2022celltrek} takes a two-step approach. First, it co-embeds single cells and spatial spots into a shared latent space using mutual nearest neighbours, creating a joint UMAP representation. Second, it trains a random forest on the spatial coordinates of spots within this embedding and uses the forest to predict coordinates for each single cell. The predicted coordinates place cells at sub-spot resolution, producing a spatially resolved single-cell map.
+
+CellTrek's strength is its ability to leverage non-linear relationships captured by the random forest, potentially resolving fine spatial patterns that linear methods miss. However, the two-step design means errors in the co-embedding propagate into coordinate predictions, and the method does not enforce consistency with the observed spot-level expression (i.e., the sum of mapped cells' expression need not equal the spot measurement).
+
+\subsection{CytoSPACE}
+
+CytoSPACE \citep{vahid2023cytospace} frames mapping as a linear assignment problem: given $C$ reference cells and $N$ spatial slots (where $N = \sum_s n_s$ and $n_s$ is the estimated cell count in spot $s$), it finds the minimum-cost one-to-one assignment that minimises the total expression distance between each cell and its assigned spot. The assignment is solved efficiently using the shortest-augmenting-path algorithm.
+
+The one-to-one constraint is CytoSPACE's key advantage: every reference cell is placed exactly once, and every spatial slot receives exactly one cell, producing an unambiguous mapping. This makes downstream interpretation straightforward. The trade-off is rigidity: if the reference does not contain enough cells of a given type to fill all spots, the assignment is forced to use suboptimal matches. CytoSPACE therefore requires that the reference be sufficiently large and representative.
+
+\subsection{Limitations of mapping-based approaches}
+
+Despite their utility, mapping methods share several fundamental limitations:
+
+\begin{enumerate}
+  \item \textbf{Reference dependence}: the spatial atlas can only contain cell types and states present in the reference. Novel populations or tissue-specific states absent from the scRNA-seq data will be missed entirely.
+  \item \textbf{Cell-count estimation}: all methods require an estimate of how many cells occupy each spot. Errors in this estimate---whether from image segmentation or from deconvolution---propagate directly into the mapping quality.
+  \item \textbf{Mapping ambiguity}: when multiple cell types have similar transcriptomes (e.g., fibroblast subtypes), the assignment becomes degenerate and the spatial placement is unreliable.
+  \item \textbf{No new expression information}: mapping places existing cells in space but does not refine or correct their expression profiles to account for spatial context. The mapped cells retain their original (non-spatial) expression values.
+  \item \textbf{Evaluation difficulty}: without ground-truth spatial single-cell data, it is hard to assess whether a mapping is biologically correct beyond checking aggregate consistency with spot-level measurements.
+\end{enumerate}
+
+These limitations motivate Stage~III methods, which go beyond placement to reconstruct spatially informed per-cell expression profiles.

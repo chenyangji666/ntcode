@@ -1,0 +1,22 @@
+\section{Introduction}
+\label{sec:intro}
+
+Spatial transcriptomics preserves the tissue coordinates of gene-expression measurements, allowing direct study of microenvironments, intercellular signalling, and spatially patterned disease processes that dissociated single-cell RNA sequencing (scRNA-seq) cannot access. Since its recognition as \emph{Nature Methods}' Method of the Year in 2020 \citep{marx2021method}, the technology has become routine in both basic and translational research.
+
+However, the most widely adopted spatial transcriptomics platform---10x Genomics Visium---operates at a resolution of 55~\textmu m per spot, with each spot typically containing 1--10 cells. This ``spot mixing'' problem means that the measured expression at each location is a superposition of signals from multiple cells of potentially different types, obscuring the cell-type-specific biology that researchers seek to characterise. While newer platforms (Visium HD, Slide-seqV2, Stereo-seq) push toward higher resolution, and imaging-based methods (MERFISH, Xenium) achieve true single-cell or subcellular resolution, the vast majority of published spatial transcriptomics datasets---and the most cost-effective experimental designs---remain at spot-level resolution with transcriptome-wide gene coverage.
+
+This gap has driven the development of computational methods that recover single-cell information from spot-level measurements. These methods vary in ambition: some estimate cell-type proportions within each spot, others place individual reference cells at spatial coordinates, and the most aggressive synthesise complete per-cell expression profiles at sub-spot resolution. They differ in their assumptions, data requirements, and the confidence warranted by their outputs.
+
+Existing reviews cover parts of this space. \citet{gaspardboulinc2025deconvolution} provide a thorough survey of cell-type deconvolution but do not extend to mapping or reconstruction. Earlier reviews by \citet{longo2021integrating} and \citet{tian2023expanding} predate pseudo single-cell reconstruction methods entirely. No existing review treats the complete computational pipeline from spots to cells as a unified progression.
+
+\textbf{Contributions of this review.} We provide the first systematic treatment of the full four-stage pipeline for enhancing spatial transcriptomics resolution:
+\begin{enumerate}
+  \item \textbf{Stage~I}: Spot-level deconvolution---estimating cell-type proportions per spot.
+  \item \textbf{Stage~II}: Single-cell mapping---assigning reference cells to spatial coordinates.
+  \item \textbf{Stage~III}: Pseudo single-cell reconstruction---synthesising per-cell expression at sub-spot resolution.
+  \item \textbf{Stage~IV}: Multi-modal and image-guided enhancement, using histology and paired modalities.
+\end{enumerate}
+
+We survey more than 25 methods published between 2020 and 2026, propose a two-axis taxonomy based on output resolution and information source, and provide a practical decision tree for method selection. Critically, we delineate what pseudo single-cell reconstruction can and cannot reliably infer (Box~1), addressing the growing concern that reconstructed cells are being treated as observational data in downstream analyses without appropriate caveats.
+
+The remainder of this review is organised as follows. Section~\ref{sec:background} introduces spatial transcriptomics platforms and formalises the resolution gap. Sections~\ref{sec:stage1}--\ref{sec:stage4} present the four stages in detail. Section~\ref{sec:comparison} provides unified comparison and practical guidance. Section~\ref{sec:limitations} discusses open challenges, and Section~\ref{sec:future} outlines future directions.

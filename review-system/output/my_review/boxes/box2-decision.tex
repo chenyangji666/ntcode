@@ -1,0 +1,47 @@
+\begin{tcolorbox}[title=Box 2: Decision tree for method selection]
+
+\textbf{Question 1: Do you have a matched scRNA-seq reference?}
+
+\hspace{1em} $\rightarrow$ \textbf{Yes}: Proceed to Question 2.
+
+\hspace{1em} $\rightarrow$ \textbf{No}: Use reference-free methods (STdeconvolve, BayesTME) for Stage~I only. Consider generating a reference from atlas data if possible.
+
+\vspace{0.5em}
+
+\textbf{Question 2: What resolution of output do you need?}
+
+\hspace{1em} $\rightarrow$ \textbf{Cell-type proportions per spot} (Stage~I): Use \textbf{cell2location} (complex tissues) or \textbf{RCTD} (routine analyses). Add \textbf{CARD} if spatial smoothness is expected.
+
+\hspace{1em} $\rightarrow$ \textbf{Spatially mapped cells} (Stage~II): Use \textbf{CytoSPACE} (one-to-one mapping) or \textbf{Tangram} (flexible assignment). Ensure accurate cell-count estimates first.
+
+\hspace{1em} $\rightarrow$ \textbf{Per-cell expression profiles} (Stage~III): Validate Stage~I output first. Use \textbf{SpatialScope} (diffusion-based) or \textbf{CellMap} (optimal transport). Treat outputs as model estimates.
+
+\vspace{0.5em}
+
+\textbf{Question 3: Do you have histology images?}
+
+\hspace{1em} $\rightarrow$ \textbf{Yes}: Use \textbf{Cellpose} for cell counting. Consider \textbf{CellRefiner} for image-guided reconstruction. Supply density priors to Tangram.
+
+\hspace{1em} $\rightarrow$ \textbf{No}: Rely on expression-based methods. Use BayesSpace for coordinate-aware enhancement.
+
+\vspace{0.5em}
+
+\textbf{Question 4: Is your tissue well-structured or highly heterogeneous?}
+
+\hspace{1em} $\rightarrow$ \textbf{Well-structured}: Add \textbf{CARD} for spatial smoothness. Use graph-based methods if GPU available.
+
+\hspace{1em} $\rightarrow$ \textbf{Heterogeneous}: Avoid over-smoothing. Use probabilistic methods (cell2location, DestVI) that capture within-type variation.
+
+\vspace{0.5em}
+
+\textbf{Question 5: What is your computational budget?}
+
+\hspace{1em} $\rightarrow$ \textbf{Limited}: Use regression methods (RCTD, CARD, SPOTlight). Avoid GPU-dependent approaches.
+
+\hspace{1em} $\rightarrow$ \textbf{Ample}: Consider deep-learning methods (GraphST, SpatialScope) for potentially improved performance.
+
+\vspace{0.5em}
+
+\textbf{Default recommendation:} Start with \textbf{cell2location} or \textbf{RCTD} for deconvolution, \textbf{CytoSPACE} for mapping, and validate before proceeding to reconstruction.
+
+\end{tcolorbox}

@@ -1,0 +1,78 @@
+\section{Future Directions}
+\label{sec:future}
+
+Despite significant advances in our understanding of CAF biology in breast cancer, critical knowledge gaps remain. We identify six directions likely to shape future research and clinical translation.
+
+\subsection{Foundation models for CAF biology}
+
+Large-scale pre-trained models---analogous to those emerging for spatial omics (Nicheformer, scGPT)---could transform CAF research by learning transferable representations of CAF identity and function from atlas-scale data \citep{cui2024scgpt}. These models could:
+
+\begin{itemize}
+  \item Enable automated CAF subtyping across diverse breast cancer datasets, reducing the need for manual annotation.
+  \item Predict CAF functional states from limited transcriptomic data, facilitating the analysis of clinical samples with sparse molecular information.
+  \item Identify conserved CAF programmes across cancer types, revealing fundamental principles of CAF biology.
+\end{itemize}
+
+However, the development of CAF-specific foundation models requires large, standardized training datasets with comprehensive CAF annotations---a resource that does not yet exist. Community efforts to generate such datasets, analogous to the Human Cell Atlas, would be transformative.
+
+\subsection{Spatial multi-omics integration}
+
+The integration of spatial transcriptomics, spatial proteomics, and spatial metabolomics will provide a comprehensive view of CAF biology at single-cell resolution \citep{stahl2016visualization}:
+
+\textbf{Spatial transcriptomics + proteomics:} Combining gene expression with protein abundance will enable the mapping of CAF signalling pathways at spatial resolution, revealing how transcriptional programmes translate into functional outputs.
+
+\textbf{Spatial transcriptomics + metabolomics:} Spatial metabolomics technologies (MALDI-MSI, DESI-MSI) can map metabolite distributions within tissues. Integrating these data with CAF transcriptomics will reveal how CAF metabolism shapes the metabolic landscape of the tumour microenvironment.
+
+\textbf{Spatial multi-modal atlases:} Comprehensive spatial atlases integrating transcriptomic, proteomic, and metabolomic data from the same tissue sections will provide unprecedented resolution of CAF biology. The Human Tumour Atlas Network (HTAN) and similar initiatives are beginning to generate such resources.
+
+\subsection{Functional genomics of CAFs}
+
+CRISPR-based functional genomics screens---performed directly in CAFs within the tumour microenvironment---could identify the genetic dependencies that maintain the CAF phenotype and drive their tumour-promoting functions:
+
+\textbf{In vivo CRISPR screens:} Performing CRISPR knockout screens in CAFs within orthotopic breast tumour models could identify genes essential for CAF activation, survival, and function \citep{erve2024}.
+
+\textbf{Single-cell CRISPR screens:} Combining CRISPR perturbation with single-cell readouts (CROP-seq, Perturb-seq) could reveal the gene regulatory networks that control CAF heterogeneity and function.
+
+\textbf{CRISPRi/CRISPRa screens:} Interference and activation screens could identify genes whose modulation reprograms CAFs from tumour-promoting to tumour-restraining states, revealing therapeutic targets for CAF reprogramming.
+
+\subsection{CAF-targeted drug delivery}
+
+The development of CAF-targeted drug delivery systems could enhance the efficacy of CAF-targeted therapies while reducing off-target toxicity:
+
+\textbf{Nanoparticle-based delivery:} Nanoparticles functionalized with FAP-targeting peptides or antibodies can deliver drugs specifically to CAFs, reducing systemic exposure \citep{miao2023}.
+
+\textbf{Exosome-based delivery:} Engineered exosomes carrying therapeutic cargo (siRNAs, small molecules) can be targeted to CAFs through surface modifications, exploiting the natural tropism of exosomes for the tumour microenvironment \citep{zhao2023}.
+
+\textbf{CAR-T cell-mediated delivery:} CAR-T cells engineered to secrete therapeutic payloads upon CAF recognition can deliver drugs directly to the CAF-rich stroma, combining CAF depletion with drug delivery.
+
+\subsection{Liquid biopsy for CAF monitoring}
+
+The development of liquid biopsy assays for CAF-derived biomarkers could enable real-time monitoring of CAF activity and treatment response:
+
+\textbf{CAF-derived exosomal miRNAs:} Standardized assays for CAF-specific exosomal miRNAs could provide minimally invasive monitoring of CAF activity during treatment \citep{zhao2023}.
+
+\textbf{Circulating CAF proteins:} Multiplexed immunoassays for CAF-secreted proteins (tenascin-C, periostin, FGF2) could track CAF activity over time and predict treatment resistance.
+
+\textbf{CAF-derived ctDNA:} While CAFs do not harbour tumour-specific mutations, they may release cell-free DNA with distinct epigenetic signatures (methylation patterns) that could serve as CAF-specific biomarkers.
+
+\subsection{Clinical trial design for CAF-targeted therapies}
+
+The clinical development of CAF-targeted therapies requires innovative trial designs:
+
+\textbf{Biomarker-driven patient selection:} Trials should incorporate CAF-related biomarkers (CAF density, subpopulation composition, spatial organization) to identify patients most likely to benefit from CAF-targeted therapy.
+
+\textbf{Adaptive trial designs:} Given the heterogeneity of CAF biology, adaptive trial designs that allow treatment modifications based on CAF biomarker changes during therapy may be more efficient than fixed designs.
+
+\textbf{Combination therapy platforms:} Platform trials evaluating multiple CAF-targeted strategies in combination with standard therapies could accelerate the identification of effective combinations.
+
+\textbf{Translational endpoints:} Trials should incorporate translational endpoints---including pre- and post-treatment biopsies with single-cell and spatial analyses---to understand the mechanisms of response and resistance.
+
+\subsection{Ethical considerations}
+
+As CAF-targeted therapies move toward clinical translation, ethical considerations must be addressed:
+
+\textbf{Equity in access:} CAF-targeted therapies---particularly CAR-T cells and bispecific antibodies---are likely to be expensive. Ensuring equitable access to these therapies across diverse populations is essential.
+
+\textbf{Long-term safety:} The long-term consequences of depleting or reprogramming CAFs---which play roles in wound healing and tissue homeostasis---must be carefully monitored.
+
+\textbf{Informed consent:} Patients enrolled in CAF-targeted trials must be informed about the experimental nature of these approaches and the potential for unexpected toxicities.

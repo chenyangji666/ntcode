@@ -1,0 +1,55 @@
+
+\section*{Foundations of Mixture of Experts}
+\addcontentsline{toc}{section}{Foundations of Mixture of Experts}
+
+\subsection*{The original MoE formulation}
+
+The Mixture of Experts architecture was introduced by \cite{jacobs1991adaptive} as a modular neural network comprising multiple expert networks and a gating network that learns to partition the input space. Given an input $\mathbf{x}$, the MoE output is computed as:
+
+\begin{equation}
+    y = \sum_{i=1}^{N} g_i(\mathbf{x}) \cdot E_i(\mathbf{x})
+\end{equation}
+
+\noindent where $N$ is the number of experts, $E_i(\mathbf{x})$ denotes the $i$-th expert network, and $g_i(\mathbf{x})$ represents the gating weight assigned by the gating network $G$, typically implemented as a softmax over linear projections:
+
+\begin{equation}
+    g_i(\mathbf{x}) = \frac{\exp(\mathbf{w}_i^\top \mathbf{x})}{\sum_{j=1}^{N} \exp(\mathbf{w}_j^\top \mathbf{x})}
+\end{equation}
+
+This formulation enables the model to learn a soft partitioning of the input space, where different experts specialize in different regions or data patterns. The key theoretical advantage is that each expert needs to model only a subset of the data distribution, reducing the complexity of the learning problem for individual components while the ensemble maintains global expressiveness \cite{yuksel2012twenty}.
+
+\subsection*{Sparse MoE and conditional computation}
+
+The modern revival of MoE was catalyzed by the seminal work of \cite{shazeer2017outrageously}, who introduced the sparsely-gated MoE layer that activates only the top-$k$ experts for each input token. This sparse routing mechanism fundamentally changed the scalability equation: a model with $N$ experts and top-$k$ routing ($k \ll N$) can increase total parameter count by $N$-fold while increasing per-token computation by only $k/N$. The top-$k$ gating function is defined as:
+
+\begin{equation}
+    y = \sum_{i \in \text{TopK}(G(\mathbf{x}), k)} g_i(\mathbf{x}) \cdot E_i(\mathbf{x})
+\end{equation}
+
+\noindent where $\text{TopK}(\cdot, k)$ selects the $k$ experts with the highest gating scores. This approach enabled the training of models with trillions of parameters, such as the Switch Transformer \cite{fedus2022switch}, while maintaining inference costs comparable to much smaller dense models.
+
+\subsection*{Load balancing and expert utilization}
+
+A critical challenge in MoE training is ensuring balanced utilization of all experts. Without explicit regularization, the gating network tends to converge to a state where a small number of experts receive the majority of inputs (``rich get richer'' dynamics), leading to expert collapse where most experts remain undertrained. To address this, auxiliary load-balancing losses have been proposed:
+
+\begin{equation}
+    \mathcal{L}_{\text{balance}} = N \cdot \sum_{i=1}^{N} f_i \cdot P_i
+\end{equation}
+
+\noindent where $f_i$ is the fraction of tokens dispatched to expert $i$ and $P_i$ is the average gating probability for expert $i$ \cite{fedus2022switch}. Recent innovations include expert-level dropout \cite{zoph2022st}, capacity factors that limit the maximum number of tokens per expert, and hash-based routing that guarantees uniform assignment \cite{roller2021hash}.
+
+\subsection*{MoE in the transformer era}
+
+The integration of MoE into transformer architectures \cite{vaswani2017attention} has been the primary driver of recent advances. In transformer-based MoE models, the feed-forward network (FFN) layers in selected transformer blocks are replaced with MoE layers, where each ``expert'' is itself an FFN. This design preserves the attention mechanism for contextual token mixing while introducing conditional computation in the position-wise transformation. Key architectural variants include:
+
+\textbf{Switch Transformer} \cite{fedus2022switch}: simplifies MoE routing to top-1 (each token sent to a single expert), dramatically simplifying the design while maintaining performance.
+
+\textbf{GLaM} \cite{du2022glam}: demonstrates that a 1.2 trillion parameter MoE model can outperform GPT-3 \cite{brown2020gpt3} while using only one-third of the training energy.
+
+\textbf{Mixtral 8$\times$7B} \cite{jiang2024mixtral}: employs 8 experts per layer with top-2 routing, achieving performance comparable to dense models with 4$\times$ more parameters.
+
+\textbf{DeepSeek-V2/V3} \cite{deepseek2024, zhang2024deepseek_v3}: introduces fine-grained expert segmentation with shared experts, pushing expert specialization to its limits.
+
+\textbf{LLaMA-4} \cite{llama4_2025}: integrates MoE into Meta's open-source LLM family with up to 128 experts per layer.
+
+These advances have established MoE as the de facto architecture for scaling large language models, and the resulting techniques are now being adapted for healthcare-specific applications across multiple modalities and tasks.

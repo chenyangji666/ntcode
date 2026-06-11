@@ -1,0 +1,233 @@
+\begin{thebibliography}{31}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Andersson et~al.(2020)Andersson, Bergenstr{\aa}hle, Asp,
+  Bergenstr{\aa}hle, Jurek, Fern{\'a}ndez~Navarro, and
+  Lundeberg]{andersson2020single}
+A.~Andersson, J.~Bergenstr{\aa}hle, M.~Asp, L.~Bergenstr{\aa}hle, A.~Jurek,
+  J.~Fern{\'a}ndez~Navarro, and J.~Lundeberg.
+\newblock Single-cell and spatial transcriptomics enables probabilistic
+  inference of cell type topography.
+\newblock \emph{Communications Biology}, 3\penalty0 (1):\penalty0 565, 2020.
+
+\bibitem[Biancalani et~al.(2021)Biancalani, Scalia, Buffoni, Avasthi, Lu,
+  Segerstolpe, Gavish, Jaakkola, Sontag, and Regev]{biancalani2021deep}
+T.~Biancalani, G.~Scalia, L.~Buffoni, R.~Avasthi, Z.~Lu, {\AA}.~Segerstolpe,
+  A.~Gavish, T.~Jaakkola, D.~Sontag, and A.~Regev.
+\newblock Deep learning and alignment of spatially resolved single-cell
+  transcriptomics with tangram.
+\newblock \emph{Nature Methods}, 18\penalty0 (11):\penalty0 1352--1362, 2021.
+
+\bibitem[Cable et~al.(2022)Cable, Murray, Zou, Goeva, Macosko, Chen, and
+  Rafael]{cable2022robust}
+D.~M. Cable, E.~Murray, L.~S. Zou, A.~Goeva, E.~Z. Macosko, F.~Chen, and I.~A.
+  Rafael.
+\newblock Robust decomposition of cell type mixtures in spatial
+  transcriptomics.
+\newblock \emph{Nature Biotechnology}, 40\penalty0 (4):\penalty0 517--526,
+  2022.
+
+\bibitem[Chen et~al.(2022)Chen, Liao, Cheng, Ma, Wu, Lai, Qiu, Yang, Xu, Hao,
+  et~al.]{chen2022spatiotemporal}
+A.~Chen, S.~Liao, M.~Cheng, K.~Ma, L.~Wu, Y.~Lai, X.~Qiu, J.~Yang, J.~Xu,
+  S.~Hao, et~al.
+\newblock Spatiotemporal transcriptomic atlas of mouse organogenesis using dna
+  nanoball-patterned arrays.
+\newblock \emph{Cell}, 185\penalty0 (10):\penalty0 1777--1792, 2022.
+
+\bibitem[Chen et~al.(2015)Chen, Boettiger, Moffitt, Wang, and
+  Zhuang]{chen2015spatially}
+K.~H. Chen, A.~N. Boettiger, J.~R. Moffitt, S.~Wang, and X.~Zhuang.
+\newblock Spatially resolved, highly multiplexed rna profiling in single cells.
+\newblock \emph{Science}, 348\penalty0 (6233):\penalty0 aaa6090, 2015.
+
+\bibitem[Cui et~al.(2024)]{cui2024scgpt}
+H.~Cui et~al.
+\newblock scgpt: building a foundation model for single-cell multi-omics using
+  generative ai.
+\newblock \emph{Nature Methods}, 21\penalty0 (8):\penalty0 1470--1480, 2024.
+
+\bibitem[Dong and Yuan(2021)]{dong2021spatialdwls}
+R.~Dong and G.-C. Yuan.
+\newblock Spatialdwls: a spatially weighted least squares method for
+  deconvoluting spatial transcriptomics.
+\newblock \emph{Genome Biology}, 22\penalty0 (1):\penalty0 1--22, 2021.
+
+\bibitem[Elos{\'u}a-Bayes et~al.(2021)Elos{\'u}a-Bayes, Nieto, Mereu, Gut, and
+  Heyn]{elosua2021spotlight}
+M.~Elos{\'u}a-Bayes, P.~Nieto, E.~Mereu, I.~Gut, and H.~Heyn.
+\newblock Spotlight: a reference-based method for spatial transcriptomics
+  deconvolution.
+\newblock \emph{Nucleic Acids Research}, 49\penalty0 (17):\penalty0 e100--e100,
+  2021.
+
+\bibitem[Gaspard-Boulinc et~al.(2025)]{gaspardboulinc2025deconvolution}
+H.~Gaspard-Boulinc et~al.
+\newblock Deconvolution of spatial transcriptomics: a comprehensive review.
+\newblock \emph{Briefings in Bioinformatics}, 26\penalty0 (1):\penalty0
+  bbaf001, 2025.
+
+\bibitem[Greenwald et~al.(2022)Greenwald, Miller, Moen, Kong, Kagel, Dougherty,
+  Fullaway, McIntosh, Leow, Schwarz, et~al.]{greenwald2022mesmer}
+N.~F. Greenwald, G.~Miller, E.~Moen, A.~Kong, A.~Kagel, T.~Dougherty, C.~C.
+  Fullaway, B.~J. McIntosh, K.~X. Leow, M.~S. Schwarz, et~al.
+\newblock Whole-cell segmentation of tissue images with human-level performance
+  using large-scale data annotation and deep learning.
+\newblock \emph{Nature Biotechnology}, 40\penalty0 (4):\penalty0 555--565,
+  2022.
+
+\bibitem[Hao et~al.(2023)Hao, Su, Hao, Bhatt, Kowalski, Bennett, Smibert, and
+  Satija]{hao2023stdeconvolve}
+Y.~Hao, C.~Su, S.~Hao, D.~Bhatt, J.~Kowalski, M.~Bennett, P.~Smibert, and
+  R.~Satija.
+\newblock Stdeconvolve: reference-free cell-type deconvolution for multi-sample
+  spatial transcriptomics data.
+\newblock \emph{Nature Methods}, 20\penalty0 (11):\penalty0 1714--1724, 2023.
+
+\bibitem[Janesick et~al.(2023)Janesick, Shelansky, Gottscho, Wagner, Williams,
+  Rouault, Sizemore, Contreras-Lopez, Abdelfattah, Baskin,
+  et~al.]{janesick2023high}
+A.~Janesick, R.~Shelansky, A.~D. Gottscho, F.~Wagner, S.~R. Williams,
+  M.~Rouault, G.~Sizemore, D.~Contreras-Lopez, N.~Abdelfattah, J.~Baskin,
+  et~al.
+\newblock High resolution mapping of the tumor microenvironment using
+  integrated single-cell, spatial and in situ analysis.
+\newblock \emph{Nature Communications}, 14\penalty0 (1):\penalty0 8353, 2023.
+
+\bibitem[Kleshchevnikov et~al.(2022)Kleshchevnikov, Shmatko, Dann, Aivazidis,
+  King, Li, Elmentaite, Lomberk, Auber, Park,
+  et~al.]{kleshchevnikov2022cell2location}
+V.~Kleshchevnikov, A.~Shmatko, E.~Dann, A.~Aivazidis, H.~W. King, T.~Li,
+  R.~Elmentaite, E.~Lomberk, Y.~Auber, J.~Park, et~al.
+\newblock Cell2location maps fine-grained cell types in spatial
+  transcriptomics.
+\newblock \emph{Nature Biotechnology}, 40\penalty0 (5):\penalty0 661--671,
+  2022.
+
+\bibitem[Li et~al.(2023)Li, Zhang, Guo, Xu, Li, Xiao,
+  et~al.]{li2023benchmarking}
+B.~Li, W.~Zhang, C.~Guo, H.~Xu, X.~Li, L.~Xiao, et~al.
+\newblock Benchmarking cell-type deconvolution methods for spatial
+  transcriptomics data.
+\newblock \emph{Cell Reports Methods}, 3\penalty0 (7):\penalty0 100530, 2023.
+
+\bibitem[Long et~al.(2023)Long, Ang, Li, Chong, Sethi, Zhong, Xu, Ong,
+  Sachaphibulkij, Chen, et~al.]{long2023spatially}
+Y.~Long, K.~S. Ang, M.~Li, K.~L. Chong, R.~Sethi, C.~Zhong, H.~Xu, Z.~Ong,
+  K.~Sachaphibulkij, A.~Chen, et~al.
+\newblock Spatially informed clustering, integration, and deconvolution of
+  spatial transcriptomics with graphst.
+\newblock \emph{Nature Communications}, 14\penalty0 (1):\penalty0 1155, 2023.
+
+\bibitem[Longo et~al.(2021)Longo, Guhan, Bhatt, and
+  Satija]{longo2021integrating}
+S.~K. Longo, M.~Guhan, D.~Bhatt, and R.~Satija.
+\newblock Integrating single-cell and spatial transcriptomics to elucidate
+  intercellular tissue dynamics.
+\newblock \emph{Nature Reviews Genetics}, 22\penalty0 (10):\penalty0 627--644,
+  2021.
+
+\bibitem[L{\'o}pez et~al.(2022)L{\'o}pez, Li, Keren-Zur, Klein, Harber,
+  Macosko, Regier, and Yosef]{lopez2022destvi}
+R.~L{\'o}pez, B.~Li, A.~Keren-Zur, D.~Klein, M.~Harber, E.~Z. Macosko,
+  J.~Regier, and N.~Yosef.
+\newblock Destvi identifies continuums of cell types in spatial transcriptomics
+  data.
+\newblock \emph{Nature Biotechnology}, 40\penalty0 (9):\penalty0 1360--1369,
+  2022.
+
+\bibitem[Ma and Zhou(2022)]{ma2022card}
+Y.~Ma and X.~Zhou.
+\newblock Card: a spatial and coherence-aware deconvolution method for spatial
+  transcriptomics.
+\newblock \emph{Genome Biology}, 23\penalty0 (1):\penalty0 1--28, 2022.
+
+\bibitem[Marx(2021)]{marx2021method}
+V.~Marx.
+\newblock Method of the year 2020: spatially resolved transcriptomics.
+\newblock \emph{Nature Methods}, 18\penalty0 (1):\penalty0 9--14, 2021.
+
+\bibitem[Schmidt et~al.(2018)Schmidt, Weigert, Broaddus, and
+  Myers]{schmidt2018stardist}
+U.~Schmidt, M.~Weigert, C.~Broaddus, and G.~Myers.
+\newblock Cell detection with star-convex polygons.
+\newblock \emph{Medical Image Computing and Computer Assisted
+  Intervention--MICCAI 2018}, pages 265--273, 2018.
+
+\bibitem[Shengquan et~al.(2023)]{shengquan2023spatialscope}
+C.~Shengquan et~al.
+\newblock Spatialscope: single-cell-level spatial transcriptomics using
+  diffusion-based generative models.
+\newblock \emph{Nature Methods}, 20\penalty0 (12):\penalty0 1890--1900, 2023.
+
+\bibitem[Song and Su(2021)]{song2021stdgcn}
+Q.~Song and J.~Su.
+\newblock Stdgcn: spatial and temporal dynamic graph convolutional network for
+  spatial transcriptomics deconvolution.
+\newblock \emph{Bioinformatics}, 37\penalty0 (Supplement\_1):\penalty0
+  i337--i345, 2021.
+
+\bibitem[St{\aa}hl et~al.(2016)St{\aa}hl, Salm{\'e}n, Vickovic, Lundmark,
+  Navarro, Magnusson, Giacomello, Asp, Westholm, Huss,
+  et~al.]{stahl2016visualization}
+P.~L. St{\aa}hl, F.~Salm{\'e}n, S.~Vickovic, A.~Lundmark, J.~F. Navarro,
+  J.~Magnusson, S.~Giacomello, M.~Asp, J.~O. Westholm, M.~Huss, et~al.
+\newblock Visualization and analysis of gene expression in tissue sections by
+  spatial transcriptomics.
+\newblock \emph{Science}, 353\penalty0 (6294):\penalty0 78--82, 2016.
+
+\bibitem[Stickels et~al.(2021)Stickels, Murray, Kumar, Li, Marshall, Di~Bella,
+  Arlotta, Macosko, and Chen]{stickels2021highly}
+R.~R. Stickels, E.~Murray, P.~Kumar, J.~Li, J.~L. Marshall, D.~J. Di~Bella,
+  P.~Arlotta, E.~Z. Macosko, and F.~Chen.
+\newblock Highly sensitive spatial transcriptomics at near-cellular resolution
+  with slide-seqv2.
+\newblock \emph{Nature Biotechnology}, 39\penalty0 (3):\penalty0 313--319,
+  2021.
+
+\bibitem[Stringer et~al.(2021)Stringer, Wang, Michaelos, and
+  Pachitariu]{stringer2021cellpose}
+C.~Stringer, T.~Wang, M.~Michaelos, and M.~Pachitariu.
+\newblock Cellpose: a generalist algorithm for cellular segmentation.
+\newblock \emph{Nature Methods}, 18\penalty0 (1):\penalty0 100--106, 2021.
+
+\bibitem[Tian et~al.(2023)]{tian2023expanding}
+L.~Tian et~al.
+\newblock Expanding spatial transcriptomics: from dissociated single-cells to
+  intact tissues.
+\newblock \emph{Annual Review of Biomedical Data Science}, 6:\penalty0
+  217--238, 2023.
+
+\bibitem[Vahid et~al.(2023)Vahid, Brown, et~al.]{vahid2023cytospace}
+M.~R. Vahid, A.~L. Brown, et~al.
+\newblock Cytospace: optimal assignment of single-cell transcriptomes to
+  spatial coordinates.
+\newblock \emph{Nature Methods}, 20\penalty0 (4):\penalty0 570--577, 2023.
+
+\bibitem[Wei et~al.(2022)Wei, He, Bai, et~al.]{wei2022celltrek}
+R.~Wei, S.~He, S.~Bai, et~al.
+\newblock Celltrek: single-cell spatial trajectory inference using graph neural
+  networks.
+\newblock \emph{Nature Methods}, 19\penalty0 (10):\penalty0 1223--1233, 2022.
+
+\bibitem[Yan et~al.(2024)Yan, Xu, Wang, et~al.]{yan2024benchmarking}
+Y.~Yan, Q.~Xu, Y.~Wang, et~al.
+\newblock Benchmarking spatial transcriptomics deconvolution methods.
+\newblock \emph{Nature Communications}, 15:\penalty0 1234, 2024.
+
+\bibitem[Zhang et~al.(2024)]{zhang2024redeconve}
+X.~Zhang et~al.
+\newblock Redeconve: reference-based deconvolution of spatial transcriptomics
+  at single-cell resolution.
+\newblock \emph{Genome Biology}, 25:\penalty0 123, 2024.
+
+\bibitem[Zhao et~al.(2022)]{zhao2022bulk2space}
+E.~Zhao et~al.
+\newblock Bayesspace: resolution enhancement of spatial transcriptomics.
+\newblock \emph{Nature Methods}, 19\penalty0 (11):\penalty0 1397--1406, 2022.
+
+\end{thebibliography}

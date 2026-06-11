@@ -1,0 +1,144 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---- Nature-style packages ----
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{times}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{mdframed}
+\usepackage{titlesec}
+
+% ---- Nature colors ----
+\definecolor{natureblue}{RGB}{0,102,153}
+\definecolor{naturegray}{RGB}{100,100,100}
+\definecolor{natureboxbg}{RGB}{240,245,250}
+\definecolor{natureboxborder}{RGB}{0,102,153}
+\definecolor{expertsred}{RGB}{200,60,60}
+\definecolor{expertsgreen}{RGB}{60,160,80}
+\definecolor{expertsblue}{RGB}{60,100,180}
+\definecolor{expertsgold}{RGB}{200,160,40}
+\definecolor{gatepurple}{RGB}{120,60,160}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=natureblue,
+  citecolor=natureblue,
+  urlcolor=natureblue
+}
+
+% ---- Section formatting (Nature style) ----
+\titleformat{\section}{\Large\bfseries\sffamily}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily}{\thesubsubsection}{1em}{}
+
+% ---- Header/Footer ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{naturegray}\textsf{Nature Reviews | Bioengineering}}
+\fancyhead[R]{\small\color{naturegray}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{natureblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% ---- Key Points box ----
+\newenvironment{keypoints}{%
+  \begin{mdframed}[
+    backgroundcolor=natureboxbg,
+    linecolor=natureboxborder,
+    linewidth=1pt,
+    roundcorner=5pt,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=15pt,
+    innerrightmargin=15pt
+  ]
+  \noindent\textbf{\textsf{Key Points}}\par\medskip
+  \begin{itemize}[leftmargin=15pt, itemsep=3pt]
+}{%
+  \end{itemize}
+  \end{mdframed}
+}
+
+% ---- Title ----
+\title{
+\vspace{-1cm}
+\textsf{\textbf{\Large Mixture of Experts in Healthcare:\\[4pt] From Conditional Computation to Clinical Intelligence}}
+\vspace{0.3cm}
+}
+
+\author{
+\textsf{Review Article}
+\vspace{0.2cm}
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+% ---- Abstract ----
+\begin{abstract}
+\noindent
+Mixture of Experts (MoE) architectures have emerged as a transformative paradigm in artificial intelligence, enabling the scaling of model capacity while maintaining computational efficiency through conditional activation of specialized sub-networks. Originally proposed three decades ago, MoE has experienced a renaissance driven by advances in deep learning and the demands of processing heterogeneous, multi-modal healthcare data. This Review examines the rapidly expanding application of MoE across the healthcare spectrum, encompassing medical imaging and computational pathology, clinical natural language processing and medical large language models, drug discovery and genomics, electronic health records analysis, and multi-modal clinical decision support. We discuss the architectural innovations that make MoE particularly suited to healthcare challenges, including its ability to handle data heterogeneity, capture disease subtypes, and integrate diverse data modalities. We further address critical challenges including interpretability, expert collapse, clinical validation, and regulatory considerations. Finally, we outline future directions at the intersection of MoE and precision medicine, including personalized expert routing, federated MoE training, and the integration of MoE into clinical foundation models.
+\end{abstract}
+
+\vspace{0.5cm}
+
+% ---- Key Points Box ----
+\begin{keypoints}
+  \item MoE architectures enable conditional computation by activating only a subset of specialized expert sub-networks for each input, decoupling model capacity from inference cost.
+  \item In healthcare, MoE naturally addresses data heterogeneity across imaging modalities, clinical specialties, and patient populations by routing inputs through domain-specialized experts.
+  \item MoE has been successfully applied to medical imaging (pathology, radiology, segmentation), clinical NLP and medical LLMs (diagnosis support, hallucination reduction), drug discovery, EHR analysis, and multi-modal clinical decision support.
+  \item Key challenges include interpretability of routing decisions, expert collapse in imbalanced medical datasets, regulatory validation of modular AI systems, and data privacy constraints.
+  \item Future directions include personalized expert routing for precision medicine, federated MoE training across institutions, and integration into clinical foundation models.
+\end{keypoints}
+
+\vspace{0.5cm}
+
+\input{chapters/01_introduction}
+\input{chapters/02_foundations}
+\input{chapters/03_imaging}
+\input{chapters/04_nlp_llm}
+\input{chapters/05_drug_genomics}
+\input{chapters/06_ehr}
+\input{chapters/07_multimodal}
+\input{chapters/08_challenges}
+\input{chapters/09_future}
+\input{chapters/10_conclusions}
+
+% ---- Figures ----
+\clearpage
+\section*{Figures}
+\addcontentsline{toc}{section}{Figures}
+
+\input{figures/fig1_moe_architecture}
+\input{figures/fig2_healthcare_overview}
+
+% ---- Tables ----
+\clearpage
+\section*{Tables}
+\addcontentsline{toc}{section}{Tables}
+
+\input{tables/tab1_summary}
+\input{tables/tab2_variants}
+
+% ---- References ----
+\clearpage
+\section*{References}
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

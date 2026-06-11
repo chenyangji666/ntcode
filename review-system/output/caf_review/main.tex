@@ -1,0 +1,63 @@
+%%
+%% Cancer-Associated Fibroblasts in Breast Cancer: From Heterogeneity to Therapeutic Targeting
+%%
+%% Target: Briefings in Bioinformatics (OUP)
+%% Template: oup-authoring-template (contemporary, large, double-column)
+%%
+
+\documentclass[unnumsec,webpdf,contemporary,large,namedate]{oup-authoring-template}
+
+\graphicspath{{figures/}}
+
+\usepackage{longtable}
+\usepackage{tcolorbox}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+\begin{document}
+
+\journaltitle{Briefings in Bioinformatics}
+\DOI{DOI HERE}
+\copyrightyear{2026}
+\pubyear{2026}
+\access{Advance Access Publication Date: Day Month Year}
+\appnotes{Review}
+
+\firstpage{1}
+
+\title[Cancer-Associated Fibroblasts in Breast Cancer]{Cancer-Associated Fibroblasts in Breast Cancer: From Heterogeneity to Therapeutic Targeting---A Systematic Review of Single-Cell and Spatial Omics Advances}
+
+\author[1]{Yangji Chen}
+\author[1,$\ast$]{Chunping Ouyang\ORCID{0000-0000-0000-0000}}
+\author[2,$\ast$]{Taolan Zhang\ORCID{0000-0000-0000-0000}}
+
+\address[1]{\orgdiv{School of Computer Science}, \orgname{University of South China}, \orgaddress{\city{Hengyang}, \postcode{421001}, \country{China}}}
+\address[2]{\orgdiv{Health Management Center, The First Affiliated Hospital, Hengyang Medical School}, \orgname{University of South China}, \orgaddress{\city{Hengyang}, \postcode{421001}, \country{China}}}
+
+\corresp[$\ast$]{Corresponding authors. \href{mailto:ouyangcp@126.com}{ouyangcp@126.com} (C. Ouyang); \href{mailto:TaolZhan@usc.edu.cn}{TaolZhan@usc.edu.cn} (T. Zhang)}
+
+\received{Date}{0}{2026}
+
+\abstract{Cancer-associated fibroblasts (CAFs) are a heterogeneous and dynamic population within the breast tumor microenvironment that critically influence tumor progression, metastasis, therapeutic resistance, and immune evasion. Traditionally viewed as passive structural support, CAFs are now recognised as active participants in tumor biology through paracrine signalling, extracellular matrix remodelling, and direct cell--cell interactions. The advent of single-cell RNA sequencing (scRNA-seq), spatial transcriptomics, and multi-modal omics technologies has revealed an unexpected degree of CAF heterogeneity, with distinct functional subpopulations co-existing within individual tumors. Here we provide a systematic review of CAF biology in breast cancer, organized into five interconnected themes: (I) the origins and activation mechanisms of CAFs, (II) single-cell-resolved CAF heterogeneity and subtyping, (III) spatial organization and niche-specific functions, (IV) CAF--immune cell crosstalk and its implications for immunotherapy, and (V) therapeutic strategies targeting CAFs. We survey more than 150 studies published between 2015 and 2026, integrate findings from bulk, single-cell, and spatial omics data, and propose a unified framework for understanding CAF functional diversity. We delineate the translational potential of CAF-targeted therapies, identify critical knowledge gaps, and discuss future directions including CAF-specific biomarkers, combination immunotherapy strategies, and the emerging role of CAFs in treatment resistance.}
+
+\keywords{cancer-associated fibroblasts, breast cancer, tumor microenvironment, single-cell RNA sequencing, spatial transcriptomics, immunotherapy, therapeutic resistance}
+
+\maketitle
+
+%% ----- Body -------------------------------------------------------
+\input{chapters/01-intro}
+\input{chapters/02-origins}
+\input{chapters/03-heterogeneity}
+\input{chapters/04-spatial}
+\input{chapters/05-immune}
+\input{chapters/06-therapy}
+\input{chapters/07-resistance}
+\input{chapters/08-biomarkers}
+\input{chapters/09-future}
+\input{chapters/10-conclusion}
+
+%% ----- Bibliography -----------------------------------------------
+\bibliographystyle{oup-abbrvnat}
+\bibliography{refs}
+
+\end{document}

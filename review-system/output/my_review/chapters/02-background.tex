@@ -1,0 +1,35 @@
+\section{Background: Spatial Transcriptomics Platforms and the Resolution Gap}
+\label{sec:background}
+
+Spatial transcriptomics (ST) technologies measure gene expression while preserving the spatial context of cells within tissue \citep{stahl2016visualization}. Over the past decade, two complementary platform families have emerged, distinguished by their measurement principle and the resulting trade-off between transcriptomic breadth and spatial resolution.
+
+\subsection{Sequencing-based platforms}
+
+Sequencing-based ST captures mRNA molecules via spatially barcoded oligonucleotide arrays, followed by next-generation sequencing. The 10x Genomics Visium platform---the most widely adopted---uses a regular grid of 55~\textmu m-diameter spots spaced 100~\textmu m apart, each capturing the transcriptomes of approximately 1--10 cells depending on tissue density. Slide-seqV2 reduces bead diameter to $\sim$10~\textmu m, approaching single-cell resolution in sparse tissues but still aggregating 1--3 cells in dense regions \citep{stickels2021highly}. Stereo-seq achieves sub-micrometre capture resolution through DNA nanoball arrays \citep{chen2022spatiotemporal}, though computational binning is typically applied to reach sufficient sequencing depth. Most recently, Visium HD offers 2~\textmu m bins that can in principle isolate individual cells, but the shallow per-bin coverage often necessitates computational aggregation back to larger units.
+
+The defining advantage of sequencing-based platforms is \emph{unbiased transcriptome-wide measurement}: all polyadenylated transcripts are captured without prior gene selection. The cost is spatial resolution---each measurement integrates signal from multiple cells, creating the ``spot mixing'' problem that motivates the computational methods reviewed here.
+
+\subsection{Imaging-based platforms}
+
+Imaging-based ST (MERFISH \citep{chen2015spatially}, seqFISH+, Xenium \citep{janesick2023high}, CosMx) detects individual RNA molecules via sequential rounds of fluorescent hybridisation or \emph{in situ} sequencing, achieving true subcellular resolution. Each detected molecule is assigned to a segmented cell, yielding per-cell expression profiles without computational deconvolution.
+
+The trade-off is gene-panel size: current commercial platforms measure 300--1{,}000 pre-selected genes (Xenium, CosMx) or up to $\sim$10{,}000 with extended protocols (MERFISH). Panel design requires prior knowledge of which genes are informative, limiting discovery of unexpected biology. Additionally, imaging-based platforms are more expensive per unit area and require specialised instrumentation.
+
+\subsection{The resolution gap and the mixing model}
+
+For sequencing-based platforms, the fundamental computational challenge is that each spot's expression vector $\mathbf{x}_s \in \mathbb{R}^G$ (where $G$ is the number of genes) represents a superposition of contributions from $N_s$ cells belonging to potentially different types:
+\begin{equation}
+  \mathbf{x}_s = \sum_{i=1}^{N_s} \mathbf{g}_i + \boldsymbol{\varepsilon}_s,
+  \label{eq:mixing}
+\end{equation}
+where $\mathbf{g}_i$ is the true expression of cell $i$ and $\boldsymbol{\varepsilon}_s$ captures technical noise (sampling, amplification, sequencing). Without additional information, recovering individual $\mathbf{g}_i$ from the aggregate $\mathbf{x}_s$ is an ill-posed inverse problem.
+
+Three sources of external information are commonly exploited to regularise this problem: (i) a \emph{single-cell RNA-seq reference} providing cell-type expression signatures $\boldsymbol{\mu}_k$; (ii) \emph{histology images} providing cell counts, positions, and morphological features; and (iii) \emph{spatial structure} encoding the expectation that neighbouring spots share similar compositions. The four computational stages reviewed in this paper differ in which information sources they exploit and what resolution of output they produce.
+
+\subsection{Role of the scRNA-seq reference}
+
+The majority of methods in Stages~I--III require a paired or atlas-derived scRNA-seq reference. This reference serves multiple roles: defining the set of possible cell types $\{1, \ldots, K\}$, providing expression signatures $\boldsymbol{\mu}_k$ for deconvolution, and supplying individual cell profiles for mapping or reconstruction.
+
+However, the reference introduces its own biases. Technology effects (10x Chromium vs. Smart-seq2 vs. spatial capture) create systematic differences in gene detection rates and expression distributions. Donor and batch effects mean that a reference built from one individual may not represent the cell states present in another. Incomplete references---missing rare cell types or transient states---create blind spots that no computational method can overcome. These limitations motivate the development of reference-free approaches (Section~\ref{sec:stage1}) and highlight the importance of reference quality assessment before applying any resolution-enhancement method.
+
+\input{tables/tab1-platforms}

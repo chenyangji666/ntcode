@@ -1,0 +1,32 @@
+\begin{tcolorbox}[title=Box 1: What pseudo single-cell reconstruction can and cannot reliably infer]
+
+\textbf{Can reliably infer:}
+\begin{itemize}
+  \item Cell-type composition within each spot (given accurate Stage~I input)
+  \item Relative spatial distribution of cell types across tissue
+  \item Co-occurrence patterns of cell types within microenvironments
+  \item Ligand--receptor pair localisation to interacting cell types
+  \item Spatial gene-expression gradients at sub-spot resolution
+  \item Niche-level characterisation of tissue microenvironments
+\end{itemize}
+
+\textbf{Cannot reliably infer:}
+\begin{itemize}
+  \item Absolute gene-expression values for individual cells
+  \item Cell states absent from the scRNA-seq reference
+  \item Stochastic gene-expression noise or burst kinetics
+  \item Causal relationships between gene expression and spatial location
+  \item True single-cell resolution measurements (these are model outputs, not observations)
+  \item Rare cell-type contributions when $<$5\% of spot composition
+\end{itemize}
+
+\textbf{Best practice:}
+\begin{itemize}
+  \item Treat reconstructed cells as model outputs, not observational data
+  \item Report reconstruction confidence scores
+  \item Validate key findings against orthogonal data (IHC, smFISH)
+  \item Propagate reconstruction uncertainty into downstream statistical tests
+  \item Avoid causal claims based solely on reconstructed data
+\end{itemize}
+
+\end{tcolorbox}

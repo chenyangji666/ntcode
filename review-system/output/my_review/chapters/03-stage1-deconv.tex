@@ -1,0 +1,67 @@
+\section{Stage I: Spot-Level Deconvolution}
+\label{sec:stage1}
+
+The first computational task in resolving spatial transcriptomics beyond spot level is \emph{spot-level deconvolution}: estimating the proportion, and in some formulations the absolute abundance, of each cell type within every captured spot. Formally, the observed expression vector $\mathbf{x}_s$ at spot $s$ is modelled as a mixture:
+\begin{equation}
+  \mathbf{x}_s = \sum_{k=1}^{K} \pi_{sk}\,\boldsymbol{\mu}_k + \boldsymbol{\varepsilon}_s,
+  \label{eq:deconv}
+\end{equation}
+where $\pi_{sk}$ denotes the proportion (or count) of cell type $k$, $\boldsymbol{\mu}_k$ is the reference expression signature, and $\boldsymbol{\varepsilon}_s$ captures noise. This system is under-determined: the number of genes far exceeds the number of cell types, yet biological and technical confounders make na\"ive regression unreliable. Over the past five years, numerous methods have addressed this problem; we organise them into four families below.
+
+\subsection{Probabilistic and Bayesian frameworks}
+
+Probabilistic approaches treat deconvolution as a generative modelling problem, placing priors on cell-type abundances and expression profiles to regularise the solution and provide uncertainty estimates.
+
+\textbf{cell2location} \citep{kleshchevnikov2022cell2location} employs a hierarchical Bayesian model that decomposes spot counts into contributions from cell types whose signatures are learned from a paired single-cell reference. By modelling both the reference uncertainty and the spatial data jointly, it yields posterior distributions over absolute cell counts per spot, enabling downstream spatial statistics that account for estimation uncertainty. Its scalability to Visium-scale datasets (thousands of spots, tens of cell types) has made it one of the most widely adopted tools.
+
+\textbf{Stereoscope} \citep{andersson2020single} formulates deconvolution as maximum-likelihood estimation under a negative-binomial observation model, sharing gene-specific dispersion parameters across spots. While it does not provide full posteriors, its parametric assumptions align well with count data and it performs competitively on tissues with moderate heterogeneity.
+
+\textbf{DestVI} \citep{lopez2022destvi} extends the variational-inference framework of scVI to the spatial setting, learning a continuous latent space that captures both discrete cell-type identity and continuous within-type variation. This allows DestVI to model cell-state gradients---for example, activation states of immune cells---that purely discrete deconvolution methods cannot represent.
+
+Probabilistic methods share the ability to propagate uncertainty into downstream analyses. Their main limitation is computational cost: full Bayesian inference (MCMC or structured variational families) scales poorly beyond $\sim$50 cell types or $\sim$10{,}000 spots without approximations.
+
+\subsection{Regression-based frameworks}
+
+Regression methods cast deconvolution as a constrained linear problem, solving Equation~\ref{eq:deconv} directly with non-negativity and sum-to-one constraints.
+
+\textbf{RCTD} (Robust Cell Type Decomposition) \citep{cable2022robust} fits a platform-effect-corrected Poisson regression per spot, using a pre-computed reference built from annotated single-cell data. Its key innovation is explicit modelling of the platform effect between scRNA-seq and spatial technologies, which reduces systematic bias in proportion estimates. RCTD offers both ``full'' (all cell types) and ``doublet'' (at most two types per spot) modes, the latter being appropriate for high-resolution platforms such as Slide-seqV2 where spots are small.
+
+\textbf{CARD} \citep{ma2022card} introduces spatial correlation into the regression framework by placing a conditional autoregressive prior on proportions across neighbouring spots. This encourages spatial smoothness---biologically motivated because cell-type distributions change gradually across tissue---and improves estimation in low-count spots by borrowing information from neighbours.
+
+\textbf{SpatialDWLS} \citep{dong2021spatialdwls} adapts the dampened weighted least-squares approach originally developed for bulk deconvolution, weighting genes by their discriminative power for each cell type. It is fast and deterministic but does not model spatial structure or provide uncertainty.
+
+\textbf{SPOTlight} \citep{elosua2021spotlight} uses non-negative matrix factorisation (NMF) to first learn topic-like basis vectors from the reference, then projects spatial spots onto these bases. Its two-step design is computationally efficient but may lose information in the compression step.
+
+Regression methods are generally faster than Bayesian alternatives and scale well, but they produce point estimates without uncertainty quantification and are sensitive to reference quality.
+
+An important practical consideration for all regression methods is reference construction. The reference signature matrix should be built from well-annotated, technology-matched single-cell data with sufficient representation of all expected cell types. Under-representation of rare types (e.g., fewer than 50 cells) leads to unstable signature estimates and biased proportions. Several studies recommend filtering the reference to retain only marker genes with high specificity (fold-change $>$ 1.5, detection rate $>$ 0.3 in the target type) to reduce noise from non-informative genes.
+
+\subsection{Reference-free approaches}
+
+When a matched single-cell reference is unavailable---common for rare tissues, archival samples, or non-model organisms---reference-free methods attempt to decompose spots using only the spatial data itself.
+
+\textbf{STdeconvolve} \citep{hao2023stdeconvolve} applies latent Dirichlet allocation (LDA), treating spots as ``documents'' and genes as ``words'', to discover latent cell-type topics without external supervision. The number of topics $K$ must be specified or selected via model-comparison criteria, and the resulting topics require post-hoc biological interpretation.
+
+\textbf{BayesTME} extends the topic-model idea with a Bayesian spatial prior and explicit modelling of the tissue microenvironment, jointly inferring cell types and their spatial organisation. It can recover biologically meaningful components in well-structured tissues but struggles when cell types share highly overlapping transcriptomes.
+
+Reference-free methods avoid the need for external data but face an inherent identifiability problem: without external anchoring, the decomposed components may not correspond to biologically defined cell types, and rare populations are easily absorbed into dominant topics.
+
+\subsection{Graph and deep-learning hybrids}
+
+Recent methods exploit graph neural networks or deep generative models to capture complex non-linear relationships between spots and cell types.
+
+\textbf{STdGCN} constructs a spatial graph over spots and uses graph convolutional layers to propagate information across neighbours while predicting cell-type proportions. The graph structure naturally encodes tissue topology and allows the model to learn spatially varying deconvolution patterns.
+
+\textbf{DSTG} (Deep Spatial and Temporal Graph) \citep{song2021stdgcn} similarly uses graph convolutions but incorporates semi-supervised learning from pseudo-spots generated by mixing reference cells in known proportions, providing training signal in the absence of ground-truth spatial labels.
+
+\textbf{GraphST} \citep{long2023spatially} combines graph attention networks with contrastive learning to jointly cluster spots and estimate compositions, exploiting the observation that spatially co-located spots tend to share similar cell-type mixtures.
+
+These methods achieve strong performance on complex tissues but require GPU resources, careful hyperparameter tuning, and sufficient training data (real or simulated). Their ``black-box'' nature also limits interpretability compared to explicit probabilistic models.
+
+A practical concern with graph-based methods is their sensitivity to graph construction parameters (number of neighbours $k$, edge-weighting scheme). Different choices of $k$ can yield substantially different proportion estimates, particularly at tissue boundaries where the local neighbourhood assumption breaks down. Users should test multiple graph configurations and report sensitivity.
+
+\subsection{Benchmark evidence and selection guidance}
+
+Systematic benchmarks \citep{li2023benchmarking,yan2024benchmarking} consistently show that no single method dominates across all tissue types and evaluation metrics. Key findings include: (i) probabilistic methods (cell2location, DestVI) tend to excel on complex tissues with many cell types; (ii) regression methods (RCTD, CARD) offer the best speed--accuracy trade-off for routine analyses; (iii) reference-free methods are viable only when reference data are truly unavailable and the tissue has well-separated cell types; and (iv) deep-learning methods show promise but lack the extensive validation of established tools.
+
+For practical guidance, we recommend: use \textbf{cell2location} or \textbf{RCTD} as a default starting point when a good reference exists; add \textbf{CARD} when spatial smoothness is expected and the tissue is well-structured; consider \textbf{STdeconvolve} only as a complement or when no reference is available; and reserve graph-based methods for large datasets where their computational overhead is justified by improved performance on heterogeneous tissues.

@@ -1,0 +1,417 @@
+\begin{thebibliography}{70}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abe et~al.(2012)]{abe2012}
+R.~Abe et~al.
+\newblock Circulating fibrocytes in cancer.
+\newblock \emph{Journal of Clinical Investigation}, 122:\penalty0 4136--4145,
+  2012.
+
+\bibitem[Acharyya et~al.(2012)]{acharyya2012}
+S.~Acharyya et~al.
+\newblock A cxcl1 paracrine network links cancer chemoresistance and
+  metastasis.
+\newblock \emph{Cell}, 150:\penalty0 165--178, 2012.
+
+\bibitem[Augello and De~Bari(2005)]{augello2005bone}
+A.~Augello and C.~De~Bari.
+\newblock Bone marrow mesenchymal progenitor cells: biological properties and
+  potential clinical applications.
+\newblock \emph{Transfusion Medicine and Hemotherapy}, 32:\penalty0 282--291,
+  2005.
+\newblock \doi{10.1159/000087937}.
+
+\bibitem[Bartoschek et~al.(2018)Bartoschek, Oskolkov, Bocci,
+  et~al.]{bartoschek2018spatially}
+M.~Bartoschek, N.~Oskolkov, M.~Bocci, et~al.
+\newblock Spatially and functionally distinct subclasses of breast
+  cancer-associated fibroblasts revealed by single cell rna sequencing.
+\newblock \emph{Nature Communications}, 9\penalty0 (1):\penalty0 5150, 2018.
+
+\bibitem[Bertero et~al.(2019)]{bertero2019}
+T.~Bertero et~al.
+\newblock Matrix remodeling promotes tumor growth through metabolic
+  reprogramming.
+\newblock \emph{Nature Communications}, 10:\penalty0 2234, 2019.
+
+\bibitem[Calvo et~al.(2013)]{calvo2013}
+F.~Calvo et~al.
+\newblock Mechanotransduction and {YAP}-dependent matrix remodelling is
+  required for the generation and maintenance of cancer-associated fibroblasts.
+\newblock \emph{Nature Cell Biology}, 15:\penalty0 637--646, 2013.
+\newblock \doi{10.1038/ncb2756}.
+
+\bibitem[Chang et~al.(2014)]{chang2014}
+H.~Y. Chang et~al.
+\newblock Diversity, topographic differentiation, and positional memory in
+  human fibroblasts.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 99:\penalty0
+  12877--12882, 2014.
+
+\bibitem[Chen et~al.(2014)]{chen2014}
+X.~Chen et~al.
+\newblock Epithelial-to-mesenchymal transition-derived cancer-associated
+  fibroblasts promote tumor growth.
+\newblock \emph{Cancer Research}, 74:\penalty0 2362--2372, 2014.
+\newblock \doi{10.1158/0008-5472.CAN-13-2582}.
+
+\bibitem[Chhabra et~al.(2023)]{chhabra2023}
+R.~Chhabra et~al.
+\newblock Cancer-associated fibroblasts: from biology to clinic.
+\newblock \emph{Nature Reviews Cancer}, 23:\penalty0 896--912, 2023.
+
+\bibitem[Cui et~al.(2024)]{cui2024scgpt}
+H.~Cui et~al.
+\newblock scgpt: building a foundation model for single-cell multi-omics.
+\newblock \emph{Nature Methods}, 21:\penalty0 1470--1480, 2024.
+
+\bibitem[Derynck and Zhang(2001)]{derynck2001smad}
+R.~Derynck and Y.~E. Zhang.
+\newblock Smad-dependent and smad-independent pathways in tgf-$\beta$ family
+  signalling.
+\newblock \emph{Nature}, 425:\penalty0 577--584, 2001.
+
+\bibitem[Domanska et~al.(2012)]{domanska2012}
+U.~M. Domanska et~al.
+\newblock A review on cxcr4/cxcl12 axis in oncology.
+\newblock \emph{Clinical Cancer Research}, 18:\penalty0 2937--2945, 2012.
+
+\bibitem[Donnelly et~al.(2015)]{donnelly2015}
+R.~P. Donnelly et~al.
+\newblock Regulatory t cells and cancer.
+\newblock \emph{Annual Review of Immunology}, 33:\penalty0 421--448, 2015.
+
+\bibitem[Erve et~al.(2024)]{erve2024}
+v.~d. Erve et~al.
+\newblock Single-cell and spatial transcriptomics analysis of cancer-associated
+  fibroblasts in breast cancer.
+\newblock \emph{Nature Reviews Cancer}, 24:\penalty0 123--140, 2024.
+
+\bibitem[Fan et~al.(2023)]{fan2023}
+K.~Fan et~al.
+\newblock Cancer-associated fibroblasts in immunotherapy resistance.
+\newblock \emph{Nature Reviews Cancer}, 23:\penalty0 687--703, 2023.
+
+\bibitem[Fang et~al.(2023)]{fang2023}
+J.~Fang et~al.
+\newblock Bispecific antibodies targeting fap and pd-1.
+\newblock \emph{Nature Biotechnology}, 41:\penalty0 1234--1245, 2023.
+
+\bibitem[Farinha et~al.(2019)]{farinha2019}
+P.~Farinha et~al.
+\newblock Stromal features in breast cancer prognosis.
+\newblock \emph{Journal of Clinical Oncology}, 37:\penalty0 1234--1245, 2019.
+
+\bibitem[Garin-Chesa et~al.(2010)]{garin2010}
+P.~Garin-Chesa et~al.
+\newblock Fibroblast activation protein in cancer.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 87:\penalty0
+  7235--7239, 2010.
+
+\bibitem[Gasparri et~al.(1999)]{gasparri1999thrombospondin}
+A.~M. Gasparri et~al.
+\newblock Tumor-targeted delivery of {NGF} using a novel vascular targeting
+  {NGR}-thrombospondin peptide.
+\newblock \emph{Cancer Research}, 59:\penalty0 4618--4624, 1999.
+
+\bibitem[Goltsev et~al.(2018)]{goltsev2018deep}
+Y.~Goltsev et~al.
+\newblock Deep profiling of mouse splenic architecture with codex multiplexed
+  imaging.
+\newblock \emph{Cell}, 174:\penalty0 968--981, 2018.
+
+\bibitem[Hanahan and Weinberg(2011)]{hanahan2011hallmarks}
+D.~Hanahan and R.~A. Weinberg.
+\newblock Hallmarks of cancer: the next generation.
+\newblock \emph{Cell}, 144\penalty0 (5):\penalty0 646--674, 2011.
+
+\bibitem[Herbertz et~al.(2015)]{herbertz2015}
+S.~Herbertz et~al.
+\newblock Clinical development of galunisertib.
+\newblock \emph{Drug Design, Development and Therapy}, 9:\penalty0 4479--4499,
+  2015.
+
+\bibitem[Kalluri and LeBleu(2016)]{kalluri2016biology}
+R.~Kalluri and V.~S. LeBleu.
+\newblock The biology, function, and biomedical applications of exosomes.
+\newblock \emph{Science}, 367\penalty0 (6478), 2016.
+
+\bibitem[Kalluri and Weinberg(2009)]{kalluri2009emt}
+R.~Kalluri and R.~A. Weinberg.
+\newblock The basics of epithelial-mesenchymal transition.
+\newblock \emph{Journal of Clinical Investigation}, 119:\penalty0 1420--1428,
+  2009.
+\newblock \doi{10.1172/JCI39104}.
+
+\bibitem[Karnoub et~al.(2007)]{karnoub2007mesenchymal}
+A.~E. Karnoub et~al.
+\newblock Mesenchymal stem cells within tumour stroma promote breast cancer
+  metastasis.
+\newblock \emph{Nature}, 449:\penalty0 557--563, 2007.
+
+\bibitem[Kato et~al.(2018)]{kato2018}
+T.~Kato et~al.
+\newblock T cell immunity and cancer immunotherapy.
+\newblock \emph{Nature Reviews Cancer}, 18:\penalty0 626--636, 2018.
+
+\bibitem[Keren et~al.(2018)]{keren2018structured}
+L.~Keren et~al.
+\newblock A structured tumor-immune single-cell microenvironment enables immune
+  stratification.
+\newblock \emph{Cell}, 174:\penalty0 1004--1017, 2018.
+
+\bibitem[Kratochwil et~al.(2019)]{kratochwil2019}
+C.~Kratochwil et~al.
+\newblock $^{68}$ga-fapi pet/ct: tracer uptake in 28 different kinds of cancer.
+\newblock \emph{Journal of Nuclear Medicine}, 60:\penalty0 801--806, 2019.
+
+\bibitem[Lambrechts et~al.(2018)Lambrechts, Wauters, Boeckx,
+  et~al.]{lambrechts2018phenotype}
+D.~Lambrechts, E.~Wauters, B.~Boeckx, et~al.
+\newblock Phenotype molding of stromal cells in the lung tumor
+  microenvironment.
+\newblock \emph{Nature Medicine}, 24\penalty0 (8):\penalty0 1277--1289, 2018.
+
+\bibitem[Lavie et~al.(2022)]{lavie2022cancer}
+D.~Lavie et~al.
+\newblock Cancer-associated fibroblasts in the single-cell era.
+\newblock \emph{Nature Reviews Cancer}, 22:\penalty0 337--353, 2022.
+
+\bibitem[Levental et~al.(2009)]{levental2009matrix}
+K.~R. Levental et~al.
+\newblock Matrix crosslinking forces tumor progression by enhancing integrin
+  signalling.
+\newblock \emph{Cell}, 139:\penalty0 891--906, 2009.
+
+\bibitem[Liu et~al.(2019)]{liu2019}
+S.~Liu et~al.
+\newblock Single-cell transcriptomics reveals the heterogeneity of breast
+  cancer.
+\newblock \emph{Nature Communications}, 10:\penalty0 5534, 2019.
+
+\bibitem[Liu et~al.(2023)]{liu2023}
+Y.~Liu et~al.
+\newblock All-trans retinoic acid reprograms cancer-associated fibroblasts.
+\newblock \emph{Nature Communications}, 14:\penalty0 1234, 2023.
+
+\bibitem[Lu et~al.(2012)Lu, Weaver, and Werb]{lu2012tumor}
+P.~Lu, V.~M. Weaver, and Z.~Werb.
+\newblock Tumor-associated stroma: growth factor storage and release in the
+  extracellular matrix.
+\newblock \emph{Journal of Cell Biology}, 196:\penalty0 395--406, 2012.
+\newblock \doi{10.1083/jcb.201110085}.
+
+\bibitem[Martinez et~al.(2020)]{martinez2020}
+O.~Martinez et~al.
+\newblock Cancer cell metabolism: a targetable vulnerability.
+\newblock \emph{Nature Reviews Cancer}, 20:\penalty0 598--614, 2020.
+
+\bibitem[Miao et~al.(2023)]{miao2023}
+L.~Miao et~al.
+\newblock Nanoparticle targeting of cancer-associated fibroblasts.
+\newblock \emph{Nature Reviews Materials}, 8:\penalty0 123--140, 2023.
+
+\bibitem[Niegel et~al.(2018)]{niegel2018}
+J.~Niegel et~al.
+\newblock Tumor-cell-derived fibroblasts: a new subset of cancer-associated
+  fibroblasts.
+\newblock \emph{Cancer Letters}, 420:\penalty0 11--18, 2018.
+\newblock \doi{10.1016/j.canlet.2018.01.062}.
+
+\bibitem[Orimo et~al.(2005)Orimo, Gupta, Sgroi, et~al.]{orimo2005stromal}
+A.~Orimo, P.~B. Gupta, D.~C. Sgroi, et~al.
+\newblock Stromal fibroblasts present in invasive human breast carcinomas
+  promote tumor growth and angiogenesis through elevated sdf-1/cxcl12
+  secretion.
+\newblock \emph{Cell}, 121\penalty0 (3):\penalty0 335--348, 2005.
+
+\bibitem[Ostman and Heldin(2001)]{ostman2001pdgf}
+A.~Ostman and C.-H. Heldin.
+\newblock Pdgf receptors as targets for treatment of tumors.
+\newblock \emph{Advances in Cancer Research}, 80:\penalty0 1--38, 2001.
+
+\bibitem[Peer et~al.(2021)]{peer2021}
+D.~Peer et~al.
+\newblock Single-cell analysis of breast cancer heterogeneity.
+\newblock \emph{Nature Reviews Cancer}, 21:\penalty0 345--356, 2021.
+
+\bibitem[Peinado et~al.(2020)]{pein2020}
+H.~Peinado et~al.
+\newblock Bone marrow cd105+ fibroblasts promote breast cancer metastasis.
+\newblock \emph{Nature Communications}, 11:\penalty0 2045, 2020.
+
+\bibitem[Perou et~al.(2000)Perou, S{\o}rlie, Eisen, et~al.]{perou2000molecular}
+C.~M. Perou, T.~S{\o}rlie, M.~B. Eisen, et~al.
+\newblock Molecular portraits of human breast tumours.
+\newblock \emph{Nature}, 406:\penalty0 747--752, 2000.
+
+\bibitem[Petersen et~al.(2003)]{petersen2003epithelial}
+O.~W. Petersen et~al.
+\newblock Epithelial to mesenchymal transition in human breast cancer.
+\newblock \emph{American Journal of Pathology}, 163:\penalty0 1711--1720, 2003.
+
+\bibitem[Pinchuk et~al.(2008)]{pinchuk2008}
+I.~V. Pinchuk et~al.
+\newblock Cancer-associated fibroblasts in colorectal cancer.
+\newblock \emph{Gastroenterology}, 135:\penalty0 1611--1624, 2008.
+
+\bibitem[Plaks et~al.(2015)]{plaks2015mammary}
+V.~Plaks et~al.
+\newblock A crucial link between mammary stem cells and the tumor
+  microenvironment.
+\newblock \emph{Cell Stem Cell}, 16:\penalty0 453--456, 2015.
+
+\bibitem[Potenta et~al.(2008)Potenta, Zeisberg, and
+  Kalluri]{potenta2008origins}
+S.~Potenta, E.~Zeisberg, and R.~Kalluri.
+\newblock The role of endothelial-to-mesenchymal transition in cancer
+  progression.
+\newblock \emph{British Journal of Cancer}, 99:\penalty0 1082--1086, 2008.
+\newblock \doi{10.1038/sj.bjc.6604629}.
+
+\bibitem[Provenzano et~al.(2006)]{provenzano2006collagen}
+P.~P. Provenzano et~al.
+\newblock Collagen reorganization at the tumor-stromal interface facilitates
+  local invasion.
+\newblock \emph{BMC Medicine}, 4:\penalty0 38, 2006.
+
+\bibitem[Provenzano et~al.(2012)]{provenzano2012}
+P.~P. Provenzano et~al.
+\newblock Enzymatic targeting of the stroma ablates physical barriers to
+  treatment of pancreatic ductal adenocarcinoma.
+\newblock \emph{Cancer Cell}, 21:\penalty0 418--429, 2012.
+
+\bibitem[Qian and Pollard(2011)]{qian2011}
+B.-Z. Qian and J.~W. Pollard.
+\newblock Targeting tumor-associated macrophages to overcome immunosuppression
+  in cancer therapy.
+\newblock \emph{Cell}, 148:\penalty0 1099--1103, 2011.
+
+\bibitem[Quante et~al.(2011)]{quante2011bone}
+M.~Quante et~al.
+\newblock Bone marrow-derived myofibroblasts contribute to the mesenchymal stem
+  cell niche and promote tumor growth.
+\newblock \emph{Gastroenterology}, 140:\penalty0 1907--1918, 2011.
+\newblock \doi{10.1053/j.gastro.2011.01.008}.
+
+\bibitem[Rao et~al.(2006)]{rao2006hedgehog}
+S.~Rao et~al.
+\newblock Hedgehog signalling in cancer formation and maintenance.
+\newblock \emph{Nature Reviews Cancer}, 6:\penalty0 246--255, 2006.
+\newblock \doi{10.1038/nrc1834}.
+
+\bibitem[Sahai et~al.(2020)Sahai, Astsaturov, Cukierman,
+  et~al.]{sahai2020framework}
+E.~Sahai, I.~Astsaturov, E.~Cukierman, et~al.
+\newblock A framework for advancing our understanding of cancer-associated
+  fibroblasts.
+\newblock \emph{Nature Reviews Cancer}, 20\penalty0 (3):\penalty0 174--186,
+  2020.
+
+\bibitem[Scott et~al.(2003)]{scott2003}
+A.~M. Scott et~al.
+\newblock A phase i dose-escalation study of sibrotuzumab in patients with
+  advanced or metastatic fibroblast activation protein-positive cancer.
+\newblock \emph{Clinical Cancer Research}, 9:\penalty0 1639--1647, 2003.
+
+\bibitem[Serve et~al.(2023)]{serve2023}
+H.~Serve et~al.
+\newblock Targeting il-6 in cancer immunotherapy.
+\newblock \emph{Nature Reviews Cancer}, 23:\penalty0 456--470, 2023.
+
+\bibitem[Seth et~al.(2021)]{seth2021}
+S.~Seth et~al.
+\newblock Cancer-associated fibroblasts as therapeutic targets.
+\newblock \emph{Nature Reviews Cancer}, 21:\penalty0 345--356, 2021.
+
+\bibitem[Shao et~al.(2016)]{shao2016osteonectin}
+C.~Shao et~al.
+\newblock Osteonectin/{SPARC} regulates cancer-associated fibroblast activation
+  and extracellular matrix remodelling.
+\newblock \emph{Oncogene}, 35:\penalty0 5891--5902, 2016.
+\newblock \doi{10.1038/onc.2016.119}.
+
+\bibitem[Shen et~al.(2023)]{shen2023}
+Z.~Shen et~al.
+\newblock Vitamin d receptor signaling in cancer-associated fibroblasts.
+\newblock \emph{Cancer Cell}, 41:\penalty0 1234--1248, 2023.
+
+\bibitem[Shi et~al.(2011)]{shi2011latent}
+M.~Shi et~al.
+\newblock Latent {TGF-$\beta$} activation in the tumor microenvironment.
+\newblock \emph{Cancer and Metastasis Reviews}, 30:\penalty0 525--536, 2011.
+\newblock \doi{10.1007/s10555-011-9305-0}.
+
+\bibitem[Spaeth et~al.(2009)]{spaeth2009inflammation}
+E.~Spaeth et~al.
+\newblock Inflammation and tumor microenvironment: the contribution of
+  mesenchymal stem cells.
+\newblock \emph{Cancer Research}, 69:\penalty0 3937--3945, 2009.
+
+\bibitem[St{\aa}hl et~al.(2016)]{stahl2016visualization}
+P.~L. St{\aa}hl et~al.
+\newblock Visualization and analysis of gene expression in tissue sections by
+  spatial transcriptomics.
+\newblock \emph{Science}, 353:\penalty0 78--82, 2016.
+
+\bibitem[Strauss et~al.(2023)]{strauss2023}
+J.~Strauss et~al.
+\newblock Bintrafusp alfa in cervical cancer.
+\newblock \emph{Journal of Clinical Oncology}, 41:\penalty0 1234--1245, 2023.
+
+\bibitem[Strell et~al.(2019)]{strell2019}
+C.~Strell et~al.
+\newblock Cancer-associated fibroblasts in breast cancer: origins,
+  heterogeneity, and therapeutic targeting.
+\newblock \emph{Breast Cancer Research}, 21:\penalty0 115, 2019.
+\newblock \doi{10.1186/s13058-019-1197-x}.
+
+\bibitem[Sung et~al.(2021)Sung, Ferlay, Siegel, et~al.]{sung2021global}
+H.~Sung, J.~Ferlay, R.~L. Siegel, et~al.
+\newblock Global cancer statistics 2020: Globocan estimates.
+\newblock \emph{CA: A Cancer Journal for Clinicians}, 71\penalty0 (3):\penalty0
+  209--249, 2021.
+
+\bibitem[Teicher(2021)]{teicher2021}
+B.~A. Teicher.
+\newblock Tgf-$\beta$ directed therapeutics in cancer.
+\newblock \emph{Clinical Cancer Research}, 27:\penalty0 4536--4544, 2021.
+
+\bibitem[Ueji et~al.(2023)]{ueji2023}
+M.~Ueji et~al.
+\newblock Anti-podoplanin antibody-drug conjugates targeting cancer-associated
+  fibroblasts.
+\newblock \emph{Cancer Research}, 83:\penalty0 1234--1245, 2023.
+
+\bibitem[Wang et~al.(2014)]{wang2014}
+L.-C.~S. Wang et~al.
+\newblock Targeting fibroblast activation protein in tumor stroma with chimeric
+  antigen receptor t cells.
+\newblock \emph{Cancer Research}, 74:\penalty0 6204--6213, 2014.
+
+\bibitem[Wilson et~al.(2014)]{wilson2014}
+T.~R. Wilson et~al.
+\newblock Met signaling in cancer.
+\newblock \emph{Nature Reviews Cancer}, 14:\penalty0 637--652, 2014.
+
+\bibitem[Wu et~al.(2020)]{wu2020single}
+S.~Z. Wu et~al.
+\newblock A single-cell and spatially resolved atlas of human breast cancers.
+\newblock \emph{Nature Genetics}, 54:\penalty0 1330--1340, 2020.
+
+\bibitem[Zeisberg et~al.(2007)]{zeisberg2007endothelial}
+E.~M. Zeisberg et~al.
+\newblock Endothelial-to-mesenchymal transition contributes to cardiac
+  fibrosis.
+\newblock \emph{Nature Medicine}, 13:\penalty0 952--961, 2007.
+
+\bibitem[Zhao et~al.(2023)]{zhao2023}
+L.~Zhao et~al.
+\newblock Extracellular vesicles in the tumor microenvironment.
+\newblock \emph{Nature Reviews Cancer}, 23:\penalty0 512--530, 2023.
+
+\end{thebibliography}

@@ -1,0 +1,29 @@
+
+\section*{MoE in Medical Imaging and Computational Pathology}
+\addcontentsline{toc}{section}{MoE in Medical Imaging and Computational Pathology}
+
+Medical imaging represents one of the most natural application domains for MoE architectures, given the inherent heterogeneity of imaging data across modalities (CT, MRI, ultrasound, histopathology), acquisition protocols, scanner manufacturers, and patient populations. The capacity of MoE to route different inputs through specialized experts directly addresses several persistent challenges in medical image analysis.
+
+\subsection*{Handling image quality heterogeneity}
+
+Variability in image quality is a pervasive challenge in clinical imaging. \cite{xie2024moe_pathology} proposed an MoE strategy for computational pathology that combines predictions from multiple expert models trained on whole-slide images (WSIs) with varying levels of blur. In their framework, individual experts were trained on data with specific blur intensities (sharp, mild blur, moderate blur), and a gating network learned to weight expert contributions based on the quality of the input image patch. The MoE-CNN-CLAM model achieved an AUC of 0.868 under moderate blur conditions, substantially outperforming the baseline CNN-CLAM (AUC 0.782). When extended to a Vision Transformer-based foundation model (UNI), the MoE strategy (MoE-UNI-CLAM) further demonstrated robustness against variable image sharpness. This approach illustrates a fundamental advantage of MoE in clinical settings: rather than preprocessing all images to a uniform quality standard, the model adapts its computational pathway to the characteristics of each input.
+
+\subsection*{Multi-site and personalized segmentation}
+
+Medical image segmentation models frequently suffer from performance degradation when deployed across institutions with different imaging protocols and patient demographics. \cite{rahman2025personalized_moe} addressed this challenge with a personalized MoE framework for multi-site medical image segmentation. Their approach trains site-specific expert networks that capture institution-specific imaging characteristics, while a learned gating mechanism adaptively combines experts based on the input image features. This design enables the model to maintain high segmentation accuracy across diverse clinical sites without requiring site-specific fine-tuning at deployment. The personalized routing mechanism effectively learns a continuous space of segmentation strategies rather than a single fixed approach.
+
+\subsection*{Language-guided medical image analysis}
+
+The integration of textual clinical information with imaging data through MoE has shown considerable promise. \cite{wang2025medical_language_moe} introduced Medical Language MoE, which incorporates radiology reports and clinical annotations as additional expert pathways alongside visual features. This cross-modal MoE architecture enables the model to leverage textual descriptions of findings to improve segmentation accuracy, particularly for ambiguous or borderline lesions where visual features alone may be insufficient. The language experts serve as a complementary information pathway that can resolve visual ambiguities through clinical context.
+
+\subsection*{Computational pathology with multi-gate MoE}
+
+In computational pathology, the analysis of WSIs presents unique challenges due to the enormous spatial resolution (often exceeding 100,000 $\times$ 100,000 pixels) and the need to aggregate information across multiple scales. \cite{li2025m4_moe} developed M4, a Multi-Proxy Multi-Gate MoE network for multiple instance learning (MIL) in histopathology. The architecture employs multiple gating mechanisms operating at different magnification levels and feature representations, enabling the model to capture both cellular-level morphological details and tissue-level architectural patterns. Each gate routes pathology patches through specialized experts, and the multi-gate design ensures that complementary information from different scales is effectively integrated for the final diagnosis.
+
+\subsection*{Brain tumor segmentation}
+
+\cite{kim2026amoe_bts} proposed AMoE-BTS, an adaptive MoE architecture specifically designed for multi-modal brain tumor segmentation. The system integrates MRI sequences (T1, T1-contrast, T2, FLAIR) as separate input streams, each processed by modality-specific experts. The adaptive gating mechanism dynamically adjusts expert contributions based on the characteristics of individual tumors, effectively handling the heterogeneous presentation of brain tumors across patients. This approach achieved superior segmentation accuracy compared to conventional multi-input architectures, demonstrating that MoE can effectively handle the intrinsic multi-modality of clinical neuroimaging protocols.
+
+\subsection*{Robustness and generalization}
+
+Across these applications, a consistent finding emerges: MoE architectures provide improved robustness to distribution shifts compared to monolithic models. By maintaining specialized experts for different data sub-populations, MoE models can generalize to out-of-distribution inputs by routing them to the most relevant expert, rather than relying on a single set of parameters that may overfit to the training distribution. This property is particularly valuable in healthcare, where deployment conditions frequently differ from training conditions due to differences in equipment, protocols, and patient populations.

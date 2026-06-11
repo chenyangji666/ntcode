@@ -1,0 +1,28 @@
+
+\begin{table}[htbp]
+\centering
+\caption{\textbf{Summary of MoE applications across healthcare domains.}}
+\label{tab:moe_summary}
+\small
+\begin{tabular}{@{}p{2cm}p{3.5cm}p{4cm}p{3.5cm}@{}}
+\toprule
+\textbf{Domain} & \textbf{Application} & \textbf{MoE Approach} & \textbf{Key Innovation} \\
+\midrule
+\multirow{3}{2cm}{Medical Imaging} & Pathology blur robustness & Multi-expert with quality-aware gating & Variable-blur expert training \citep{xie2024moe_pathology} \\
+\cmidrule(lr){2-4}
+& Multi-site segmentation & Personalized site-specific experts & Adaptive site routing \citep{rahman2025personalized_moe} \\
+\cmidrule(lr){2-4}
+& Brain tumor segmentation & Modality-specific experts for MRI & Adaptive multi-modal gating \citep{kim2026amoe_bts} \\
+\midrule
+\multirow{2}{2cm}{Clinical NLP} & Breast cancer support & LoRA experts with knowledge routing & Hallucination mitigation \citep{bechar2025biocancer_moe} \\
+\cmidrule(lr){2-4}
+& MDT simulation & Discipline-specific expert reasoning & Collaborative consensus \citep{chen2026cor_mole} \\
+\midrule
+\multirow{2}{2cm}{Drug Discovery} & Epigenetic analysis & Mark-specific MoE Transformer & Multi-epigenomic integration \citep{acharya2025mobius} \\
+\cmidrule(lr){2-4}
+& Single-cell multi-omics & Sparse MoE for modalities & Cross-modal cell representation \citep{yun2024scmoe} \\
+\midrule
+\multirow{1}{2cm}{Multi-Modal} & Multi-pathology diagnosis & Sparse MoE vision-language & Pathology-specific experts \citep{khan2025medvlmoe} \\
+\bottomrule
+\end{tabular}
+\end{table}

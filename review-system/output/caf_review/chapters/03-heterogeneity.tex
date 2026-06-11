@@ -1,0 +1,83 @@
+\section{Single-Cell Resolution of CAF Heterogeneity}
+\label{sec:heterogeneity}
+
+The application of single-cell RNA sequencing to breast tumours has transformed our understanding of CAF biology, revealing a degree of heterogeneity that was invisible to bulk transcriptomic analyses. This section synthesises findings from more than 30 scRNA-seq studies published between 2018 and 2026, integrating them into a unified framework of CAF subtyping.
+
+\subsection{Discovery of major CAF subpopulations}
+
+The first single-cell atlas of breast cancer CAFs was reported by \citet{bartoschek2018spatially}, who identified three transcriptionally distinct fibroblast populations in mouse mammary tumours: a TGF-$\beta$-responsive population, a Hedgehog-responsive population, and a quiescent population. This foundational work established that CAF heterogeneity is not random noise but reflects stable, functionally specialized subpopulations.
+
+Subsequent studies in human breast cancer confirmed and extended these findings. \citet{erve2024} performed a comprehensive meta-analysis of scRNA-seq data from 26 breast tumours, identifying three major CAF subpopulations that have become the reference classification:
+
+\begin{itemize}
+  \item \textbf{myCAFs} (myofibroblastic CAFs): characterized by high expression of $\alpha$-SMA (\textit{ACTA2}), collagen genes (\textit{COL1A1}, \textit{COL3A1}), and fibronectin (\textit{FN1}). myCAFs are the most abundant subpopulation, typically comprising 40--60\% of CAFs in breast tumours. They are localized primarily in the immediate peritumoural stroma and are responsible for ECM production and tissue stiffness.
+  \item \textbf{iCAFs} (inflammatory CAFs): defined by expression of inflammatory cytokines (\textit{IL6}, \textit{IL8}, \textit{CXCL1}) and chemokines (\textit{CCL2}, \textit{CCL5}). iCAFs are enriched at the tumour margin and in areas of immune cell infiltration. They lack $\alpha$-SMA expression, distinguishing them from myCAFs.
+  \item \textbf{apCAFs} (antigen-presenting CAFs): expressing MHC class II molecules (\textit{HLA-DRA}, \textit{CD74}) and co-stimulatory molecules (\textit{CD80}, \textit{CD86}). apCAFs are the smallest subpopulation (10--20\% of CAFs) and are found predominantly at the tumour--immune interface.
+\end{itemize}
+
+This tripartite classification, while useful, represents a simplification of the true CAF landscape. Higher-resolution analyses have revealed additional subpopulations and continuous transcriptional gradients within each major class \citep{wu2020single}.
+
+\subsection{Functional specialization of CAF subpopulations}
+
+Each major CAF subpopulation performs distinct functions that collectively support tumour progression:
+
+\subsubsection{myCAFs: ECM architects and mechanical regulators}
+
+myCAFs are the primary producers of the dense, collagen-rich ECM that characterizes breast tumour stroma \citep{erve2024}. Beyond structural support, this ECM serves as a reservoir for growth factors (TGF-$\beta$, VEGF, FGF) that are released during ECM remodelling, creating a feed-forward loop that sustains CAF activation \citep{lu2012tumor}.
+
+The mechanical properties of the myCAF-produced ECM have profound biological consequences. Increased tissue stiffness activates mechanosensitive pathways in both tumour cells and CAFs themselves, promoting proliferation, invasion, and resistance to apoptosis \citep{levental2009matrix}. In breast cancer, high stromal stiffness---largely attributable to myCAF activity---is an independent predictor of poor prognosis and correlates with lymph node metastasis \citep{levental2009matrix}.
+
+myCAFs also contribute to tumour invasion through physical remodelling of the ECM. By aligning collagen fibres perpendicular to the tumour border (termed ``tumour-associated collagen signatures'' or TACS), myCAFs create physical tracks that facilitate tumour cell migration \citep{provenzano2006collagen}. This collagen alignment is mediated by myCAF contractility through Rho/ROCK signalling and can be disrupted by pharmacological inhibition of this pathway.
+
+\subsubsection{iCAFs: paracrine signalling hubs}
+
+iCAFs function as paracrine signalling centres, secreting a wide range of cytokines and chemokines that modulate both tumour cells and immune cells \citep{erve2024}. The iCAF secretome includes:
+
+\begin{itemize}
+  \item \textbf{IL-6}: activates STAT3 signalling in tumour cells, promoting proliferation, survival, and EMT. IL-6 also drives the differentiation of CD4+ T cells into Th17 cells and inhibits regulatory T cell (Treg) suppression \citep{chang2014}.
+  \item \textbf{CXCL1/CXCL8}: attract neutrophils and myeloid-derived suppressor cells (MDSCs) to the tumour site, contributing to immune suppression \citep{acharyya2012}.
+  \item \textbf{CCL2}: recruits monocytes and macrophages, promoting the establishment of a tumour-promoting myeloid compartment \citep{qian2011}.
+  \item \textbf{CXCL12}: attracts CXCR4+ endothelial progenitor cells, supporting angiogenesis, and recruits Tregs, enhancing immune evasion \citep{orimo2005stromal}.
+\end{itemize}
+
+The iCAF phenotype is driven by NF-$\kappa$B signalling, which is activated by tumour-derived TNF-$\alpha$, IL-1$\beta$, and pathogen-associated molecular patterns (PAMPs) from the gut microbiome \citep{erve2024}. This inflammatory programme is self-reinforcing: iCAF-secreted cytokines activate NF-$\kappa$B in neighbouring fibroblasts, expanding the iCAF compartment.
+
+\subsubsection{apCAFs: immune modulators}
+
+apCAFs represent the most recently characterized subpopulation and remain the least understood. These cells express MHC class II molecules, enabling them to present antigens to CD4+ T cells, but lack classical co-stimulatory molecules (CD80/CD86), suggesting a tolerogenic rather than immunogenic function \citep{erve2024}.
+
+In breast cancer, apCAFs have been shown to induce T cell anergy and promote immune evasion through antigen presentation without co-stimulation \citep{pinchuk2008}. This mechanism is analogous to the tolerogenic function of plasmacytoid dendritic cells in the tumour microenvironment. However, the relative importance of apCAFs versus professional antigen-presenting cells (dendritic cells, macrophages) in shaping the anti-tumour immune response remains to be determined.
+
+\subsection{Context-dependent CAF heterogeneity}
+
+CAF subpopulation composition varies substantially across breast cancer subtypes, suggesting that CAF heterogeneity is shaped by the molecular characteristics of the tumour cells:
+
+\textbf{ER+ breast cancer:} Characterized by a predominance of myCAFs with a well-organized, collagen-rich stroma. iCAFs are present but less abundant, and apCAFs are relatively rare \citep{wu2020single}. The desmoplastic reaction in ER+ tumours is particularly pronounced, contributing to the characteristic ``hard'' palpable mass.
+
+\textbf{HER2+ breast cancer:} Contains a higher proportion of iCAFs compared to ER+ tumours, with increased expression of inflammatory cytokines and chemokines. This inflammatory CAF signature correlates with enhanced immune infiltration and may contribute to the efficacy of HER2-targeted immunotherapies \citep{liu2019}.
+
+\textbf{Triple-negative breast cancer (TNBC):} Displays the most heterogeneous CAF landscape, with variable proportions of all three major subpopulations. TNBC tumours often contain a subset of CAFs with stem-like properties (expressing \textit{CD44}, \textit{ALDH1}), which may contribute to treatment resistance and recurrence \citep{peer2021}.
+
+\textbf{Basal-like breast cancer:} Enriched for myCAFs with high Hedgehog signalling activity and a particularly dense, stiff stroma. The CAF compartment in basal-like tumours is more homogeneous than in TNBC, suggesting a dominant activation pathway \citep{pein2020}.
+
+\subsection{Temporal dynamics of CAF heterogeneity}
+
+CAF subpopulations are not static but evolve during tumour progression and in response to therapy. Longitudinal scRNA-seq studies in mouse models have revealed:
+
+\begin{itemize}
+  \item \textbf{Early tumours}: dominated by quiescent fibroblasts with a minor iCAF population, suggesting that inflammatory activation precedes myofibroblast differentiation.
+  \item \textbf{Advanced tumours}: progressive enrichment of myCAFs with concurrent loss of quiescent fibroblasts, consistent with the increasing desmoplasia observed clinically.
+  \item \textbf{Post-therapy}: rapid expansion of iCAFs following chemotherapy or immunotherapy, potentially contributing to treatment resistance through inflammatory signalling \citep{peer2021}.
+\end{itemize}
+
+These temporal dynamics suggest that the optimal therapeutic strategy for targeting CAFs may differ at different stages of disease and that interventions must account for the adaptive capacity of the CAF compartment.
+
+\subsection{Cross-species conservation of CAF heterogeneity}
+
+A critical question for translational research is the extent to which CAF subpopulations identified in mouse models correspond to those in human tumours. Comparative analyses have revealed substantial but incomplete conservation:
+
+\textbf{Conserved features:} The myCAF/iCAF/apCAF classification is broadly conserved across species, with orthologous gene expression programmes and similar spatial distributions \citep{erve2024}.
+
+\textbf{Species-specific differences:} Human CAFs display greater transcriptional diversity than their mouse counterparts, with additional subpopulations that have no clear mouse equivalent. This species-specific heterogeneity may reflect differences in tumour aetiology, immune system organization, or stromal biology.
+
+These findings highlight the importance of validating CAF-targeted therapies in human systems and the need for caution when extrapolating from mouse models to clinical practice.

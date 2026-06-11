@@ -1,0 +1,46 @@
+\section{Stage IV: Multi-Modal and Image-Guided Enhancement}
+\label{sec:stage4}
+
+Spatial transcriptomics experiments routinely produce paired histology images (haematoxylin and eosin stains or immunofluorescence) that carry morphological information at sub-micrometre resolution. Stage~IV methods use these complementary modalities, together with spatial coordinate structure, to refine or improve the outputs of earlier stages. Images provide cell-level information (counts, boundaries, morphology) that expression data alone cannot resolve; expression data provide molecular identity that images cannot.
+
+\subsection{Image segmentation as a cell-count prior}
+
+Accurate estimation of the number of cells per spot is a prerequisite for Stages~II and III, yet it is rarely measured directly. Image segmentation fills this gap.
+
+\textbf{Cellpose} \citep{stringer2021cellpose} is a generalist deep-learning segmentation model trained on diverse cell morphologies. Applied to H\&E or DAPI-stained images co-registered with spatial transcriptomics slides, it produces per-spot nuclei counts that serve as priors for deconvolution and mapping. Its gradient-flow representation generalises well across tissue types without retraining.
+
+\textbf{StarDist} \citep{schmidt2018stardist} uses star-convex polygons to represent nuclear boundaries, offering fast and accurate segmentation particularly suited to densely packed tissues (e.g., tumour cores) where touching nuclei are common. Its polygon representation naturally handles elongated or irregular nuclear shapes.
+
+\textbf{Mesmer} (DeepCell) \citep{greenwald2022mesmer} is trained specifically on tissue microscopy and provides whole-cell (not just nuclear) segmentation when membrane markers are available, enabling more accurate cell-area estimation.
+
+The segmentation-derived cell count $\hat{n}_s$ for each spot $s$ directly informs the constraint $\sum_k \pi_{sk} = \hat{n}_s$ in deconvolution models and determines the number of slots in mapping algorithms like CytoSPACE.
+
+\subsection{Image-guided deconvolution}
+
+Beyond cell counting, histology images can inform the deconvolution process itself.
+
+\textbf{SegDecon} integrates segmentation masks directly into the deconvolution objective: it partitions each spot into sub-regions corresponding to individual segmented cells, then estimates per-cell-type contributions within each sub-region rather than at the whole-spot level. This effectively increases the spatial resolution of deconvolution from spot-level ($\sim$55~\textmu m for Visium) to cell-level ($\sim$10~\textmu m), bridging the gap between sequencing-based and imaging-based platforms.
+
+\textbf{BayesSpace} \citep{zhao2022bulk2space} takes a different approach: it applies a Bayesian spatial prior over a grid of sub-spot positions, using the spatial autocorrelation of expression to ``enhance'' resolution by a factor of $\sim$3--6$\times$ without requiring image input. When histology is available, BayesSpace can incorporate image features as additional covariates, further improving sub-spot estimation.
+
+\textbf{Tangram with density input} illustrates how existing Stage~II methods benefit from image priors: by supplying Cellpose-derived cell densities as the regulariser $\mathcal{R}(\mathbf{M})$, Tangram's mapping becomes more biologically grounded, particularly in regions where expression alone is ambiguous (e.g., stroma with mixed fibroblast subtypes).
+
+\subsection{Coordinate-aware smoothing}
+
+Even without explicit image input, the spatial coordinates of spots encode tissue structure that can regularise computational outputs.
+
+Graph-based smoothing constructs a $k$-nearest-neighbour or Delaunay graph over spot positions and applies message-passing or diffusion operators to denoise expression estimates. Methods such as SpaGE and gimVI use this principle to impute missing genes in spatial data by transferring information from scRNA-seq references while respecting spatial locality.
+
+Gaussian process (GP) regression offers a principled framework for spatial smoothing with uncertainty: by placing a GP prior over expression as a function of spatial coordinates, one obtains posterior mean estimates that are smooth where data are sparse and faithful to observations where data are dense. GP-based approaches are computationally expensive for large datasets but provide well-calibrated confidence intervals.
+
+\subsection{Integration with imaging-based ST}
+
+A growing experimental design pairs sequencing-based ST (e.g., Visium) with imaging-based ST (e.g., Xenium or MERFISH) on serial sections from the same tissue block. This creates an opportunity for computational integration:
+
+\begin{itemize}
+  \item \textbf{Cross-platform anchoring}: using the shared gene panel (typically 100--500 genes measured by both platforms) to align coordinate systems and transfer cell-type labels from the imaging platform (which has true single-cell resolution) to the sequencing platform (which has transcriptome-wide coverage).
+  \item \textbf{Gene imputation}: predicting the expression of genes measured only by sequencing-based ST at the single-cell positions identified by imaging-based ST, effectively combining the resolution of one with the breadth of the other.
+  \item \textbf{Validation}: using imaging-based measurements as ground truth to evaluate and calibrate deconvolution or reconstruction outputs from the sequencing-based data.
+\end{itemize}
+
+This paired-platform strategy is increasingly adopted in atlas-scale projects (e.g., Human Cell Atlas) and offers a practical path toward single-cell-resolved, transcriptome-wide spatial data without requiring computational reconstruction to bear the full burden of resolution enhancement.

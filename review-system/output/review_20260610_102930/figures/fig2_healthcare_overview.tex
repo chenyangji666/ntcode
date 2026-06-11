@@ -1,0 +1,37 @@
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    domain/.style={rectangle, draw=#1, fill=#1!12, minimum width=3.5cm, minimum height=1.8cm, rounded corners=5pt, text width=3.2cm, align=center, font=\small},
+    center/.style={ellipse, draw=natureblue, fill=natureblue!20, minimum width=4cm, minimum height=2.5cm, font=\bfseries, align=center},
+    arrow/.style={-{Stealth[length=2.5mm]}, thick, color=naturegray!70}
+]
+
+% Center: MoE
+\node[center] (moe) at (0,0) {MoE in\\Healthcare};
+
+% Domains
+\node[domain=expertsred] (imaging) at (-6,3.5) {\textbf{Medical}\\Imaging};
+\node[domain=expertsgreen] (nlp) at (6,3.5) {\textbf{Clinical NLP}\\LLMs};
+\node[domain=expertsblue] (drug) at (-6,-3.5) {\textbf{Drug Discovery}\\Genomics};
+\node[domain=expertsgold] (ehr) at (6,-3.5) {\textbf{EHR}\\Analysis};
+\node[domain=gatepurple] (multi) at (0,5.5) {\textbf{Multi-Modal}\\Decision Support};
+
+% Arrows
+\draw[arrow] (moe) -- (imaging);
+\draw[arrow] (moe) -- (nlp);
+\draw[arrow] (moe) -- (drug);
+\draw[arrow] (moe) -- (ehr);
+\draw[arrow] (moe) -- (multi);
+
+% Sub-labels
+\node[font=\tiny, color=naturegray, text width=3cm, align=center] at (-6,2.3) {Pathology, Radiology\\Segmentation, Denoising};
+\node[font=\tiny, color=naturegray, text width=3cm, align=center] at (6,2.3) {Medical Q\&A, Diagnosis\\Hallucination Reduction};
+\node[font=\tiny, color=naturegray, text width=3cm, align=center] at (-6,-4.7) {Molecular Properties\\DDI, Variant Interpretation};
+\node[font=\tiny, color=naturegray, text width=3cm, align=center] at (6,-4.7) {Multi-task Prediction\\Patient Stratification};
+\node[font=\tiny, color=naturegray, text width=3.5cm, align=center] at (0,7) {Vision-Language, MDT Simulation\\Physiological Signals};
+
+\end{tikzpicture}
+\caption{\textbf{Overview of MoE applications across healthcare domains.} The Mixture of Experts architecture has been applied to five major areas of healthcare AI: medical imaging (including computational pathology and radiology), clinical NLP and medical LLMs, drug discovery and genomics, electronic health record analysis, and multi-modal clinical decision support.}
+\label{fig:healthcare_overview}
+\end{figure}

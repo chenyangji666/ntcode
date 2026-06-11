@@ -1,0 +1,29 @@
+
+\section*{MoE in Multi-Modal Clinical Decision Support}
+\addcontentsline{toc}{section}{MoE in Multi-Modal Clinical Decision Support}
+
+Clinical decision-making is inherently multi-modal, integrating information from diverse sources including medical images, laboratory results, genomic profiles, clinical narratives, and physiological signals. MoE architectures provide a natural framework for multi-modal fusion by assigning different modalities to specialized expert pathways and learning optimal integration strategies through the gating mechanism.
+
+\subsection*{Vision-language models for medicine}
+
+The integration of visual and textual medical information through MoE has emerged as a particularly active research area. Medical images are typically interpreted alongside clinical context: radiologists consider clinical history when reading scans, pathologists incorporate clinical information when examining tissue slides, and dermatologists integrate patient-reported symptoms with visual examination. MoE-based vision-language models capture this integration by maintaining modality-specific experts (visual experts for image features, textual experts for clinical notes) and cross-modal experts that learn to combine information from both modalities.
+
+\cite{khan2025medvlmoe} proposed MedVLMoE, a sparse MoE Vision-Language Model for multi-pathology diagnosis. The architecture processes medical images and associated clinical text through separate encoder pathways, with MoE layers at the fusion stage routing the combined representation through pathology-specific experts. This design enables the model to handle multiple pathologies simultaneously, with each expert specializing in a particular disease category. The sparse activation ensures that the model scales efficiently as new pathologies are added, without retraining the entire architecture.
+
+\subsection*{Multi-modal foundation models}
+
+The development of medical foundation models has increasingly incorporated MoE principles. \cite{phung2024moe_medical_llm} proposed Mixture-of-LoRAs for medical vision-language models, where modality-specific LoRA experts are trained for visual and textual processing, and a shared MoE layer learns cross-modal interactions. This parameter-efficient approach enables the adaptation of large vision-language models to medical domains without the prohibitive cost of full model fine-tuning.
+
+\subsection*{Clinical multi-disciplinary team simulation}
+
+Perhaps the most ambitious application of MoE in clinical decision support is the simulation of multi-disciplinary team (MDT) discussions. \cite{chen2026cor_mole} demonstrated that MoE architectures can model the collaborative reasoning process of clinical MDTs, where specialists from different disciplines contribute their expertise to complex cases. Each expert in the MoE represents a clinical discipline (oncology, radiology, pathology, surgery), and the gating mechanism orchestrates the discussion, weighing contributions based on the relevance of each discipline to the specific case.
+
+This MDT-inspired MoE design offers several advantages over conventional clinical AI: it provides discipline-specific reasoning that clinicians can evaluate and challenge, it captures the inherent uncertainty in clinical decision-making through the distribution of expert opinions, and it naturally supports explainability by revealing which experts contributed to each recommendation. The approach achieved diagnostic concordance rates with human MDTs that were significantly higher than single-model baselines, suggesting that MoE architectures can effectively capture the dynamics of collaborative clinical reasoning.
+
+\subsection*{Physiological signal analysis}
+
+Multi-channel physiological monitoring data (electrocardiography, electroencephalography, electromyography, pulse oximetry) presents another natural application for MoE. Different signal channels contain complementary information about different physiological systems, and the relative importance of each channel varies depending on the clinical context. MoE architectures that route multi-channel signals through channel-specialized experts, with task-specific gating for different clinical applications (arrhythmia detection, seizure monitoring, respiratory assessment), have demonstrated improved performance compared to models that process all channels uniformly.
+
+\subsection*{Integration with clinical workflows}
+
+A key consideration for multi-modal MoE systems in clinical settings is integration with existing clinical workflows. The modular nature of MoE architectures offers practical advantages: individual experts can be updated or replaced without retraining the entire system, new modalities can be incorporated by adding new experts, and the gating mechanism can be calibrated to match the information availability in specific clinical scenarios. This modularity aligns with the practical realities of clinical deployment, where data availability varies across institutions and clinical settings.

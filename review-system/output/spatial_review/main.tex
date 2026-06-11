@@ -1,0 +1,62 @@
+%%
+%% Computational Methods for Enhancing Spatial Transcriptomics Resolution: A Systematic Review
+%%
+%% Target: Briefings in Bioinformatics (OUP)
+%%
+
+\documentclass[unnumsec,webpdf,contemporary,large,namedate]{oup-authoring-template}
+
+\graphicspath{{figures/}}
+
+\usepackage{longtable}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+\begin{document}
+
+\journaltitle{Briefings in Bioinformatics}
+\DOI{DOI HERE}
+\copyrightyear{2026}
+\pubyear{2026}
+\access{Advance Access Publication Date: Day Month Year}
+\appnotes{Review}
+
+\firstpage{1}
+
+\title[Enhancing Spatial Transcriptomics Resolution]{Computational Methods for Enhancing Spatial Transcriptomics Resolution to the Single-Cell Level: A Systematic Review of Deconvolution, Mapping, and Reconstruction Approaches}
+
+\author[1]{Yangji Chen}
+\author[1,$\ast$]{Chunping Ouyang\ORCID{0000-0000-0000-0000}}
+\author[2,$\ast$]{Taolan Zhang\ORCID{0000-0000-0000-0000}}
+
+\address[1]{\orgdiv{School of Computer Science}, \orgname{University of South China}, \orgaddress{\city{Hengyang}, \postcode{421001}, \country{China}}}
+\address[2]{\orgdiv{Health Management Center, The First Affiliated Hospital, Hengyang Medical School}, \orgname{University of South China}, \orgaddress{\city{Hengyang}, \postcode{421001}, \country{China}}}
+
+\corresp[$\ast$]{Corresponding authors. \href{mailto:ouyangcp@126.com}{ouyangcp@126.com} (C. Ouyang); \href{mailto:TaolZhan@usc.edu.cn}{TaolZhan@usc.edu.cn} (T. Zhang)}
+
+\received{Date}{0}{2026}
+
+\abstract{Sequencing-based spatial transcriptomics platforms such as Visium capture transcriptome-wide expression but at spot-level resolution, where each measurement aggregates signals from multiple cells. Recovering single-cell information from these mixed observations is necessary for downstream analyses including cell--cell communication inference, niche characterisation, and biomarker discovery. Here we provide the first systematic review covering the complete computational pipeline from spots to cells, organised into four progressive stages: (I) spot-level deconvolution to estimate cell-type proportions, (II) single-cell mapping to assign reference cells to spatial coordinates, (III) pseudo single-cell reconstruction to synthesise per-cell expression profiles at sub-spot resolution, and (IV) multi-modal and image-guided enhancement using histology or paired modalities. We survey more than 25 representative methods published between 2020 and 2026, propose a two-axis taxonomy based on output resolution and information source, and provide a practical decision tree for method selection. We delineate what pseudo single-cell reconstruction can and cannot reliably infer, identify five open challenges, and discuss future directions including foundation models for spatial omics and the implications of emerging sub-cellular platforms.}
+
+\keywords{spatial transcriptomics, cell-type deconvolution, single-cell mapping, pseudo single-cell reconstruction, Visium, multi-modal integration}
+
+\maketitle
+
+%% ----- Body -------------------------------------------------------
+\input{chapters/01-intro}
+\input{chapters/02-background}
+\input{chapters/03-stage1-deconv}
+\input{chapters/04-stage2-mapping}
+\input{chapters/05-stage3-reconstruction}
+\input{chapters/06-stage4-multimodal}
+\input{chapters/07-comparison}
+\input{chapters/08-limitations}
+\input{chapters/09-future}
+\input{chapters/10-conclusion}
+
+%% ----- Bibliography -----------------------------------------------
+\bibliographystyle{oup-abbrvnat}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,59 @@
+
+% MoE Architecture Overview
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    expert/.style={rectangle, draw=natureblue, fill=natureblue!10, minimum width=2cm, minimum height=1cm, rounded corners=3pt, font=\small\bfseries},
+    gate/.style={diamond, draw=gatepurple, fill=gatepurple!15, minimum width=2.5cm, minimum height=1.5cm, font=\small\bfseries},
+    input/.style={rectangle, draw=gray, fill=gray!10, minimum width=3cm, minimum height=0.8cm, rounded corners=3pt, font=\small},
+    output/.style={rectangle, draw=natureblue, fill=natureblue!20, minimum width=3cm, minimum height=0.8cm, rounded corners=3pt, font=\small\bfseries},
+    arrow/.style={-{Stealth[length=3mm]}, thick, color=naturegray}
+]
+
+% Input
+\node[input] (input) at (0,0) {Input $\mathbf{x}$};
+
+% Gating Network
+\node[gate] (gate) at (0,2.2) {Gating Network $G$};
+
+% Experts
+\node[expert] (e1) at (-4.5,4.8) {Expert 1};
+\node[expert] (e2) at (-2,4.8) {Expert 2};
+\node[expert] (e3) at (0.5,4.8) {Expert 3};
+\node[expert, opacity=0.4] (e4) at (3,4.8) {Expert $i$};
+\node[expert] (en) at (5.5,4.8) {Expert $N$};
+
+% Dots
+\node at (1.75,4.8) {\large$\cdots$};
+
+% Output
+\node[output] (output) at (0,7.5) {Output $y = \sum g_i \cdot E_i$};
+
+% Arrows: input to gate
+\draw[arrow] (input) -- (gate);
+
+% Arrows: input to experts (data flow)
+\draw[arrow, color=naturegray!50] (input.west) -| (-4.5,1.5) -- (-4.5,4.3);
+\draw[arrow, color=naturegray!50] (input.west) -| (-2,1.5) -- (-2,4.3);
+\draw[arrow, color=naturegray!50] (input.east) -| (0.5,1.5) -- (0.5,4.3);
+\draw[arrow, color=naturegray!50] (input.east) -| (5.5,1.5) -- (5.5,4.3);
+
+% Arrows: gate to experts (gating weights) - only top-k
+\draw[arrow, color=gatepurple, line width=1.2pt] (gate.west) -| (-4.5,3.5) node[midway, left, font=\tiny, color=gatepurple] {$g_1$} -- (e1.south);
+\draw[arrow, color=gatepurple, line width=1.2pt] (gate.west) -| (-2,3.5) node[midway, above, font=\tiny, color=gatepurple] {$g_2$} -- (e2.south);
+\draw[arrow, color=gatepurple, line width=1.2pt] (gate.east) -| (5.5,3.5) node[midway, right, font=\tiny, color=gatepurple] {$g_N$} -- (en.south);
+\draw[arrow, color=gatepurple!30, dashed] (gate.east) -| (3,3.5) node[midway, right, font=\tiny, color=gatepurple!30] {$g_i \approx 0$} -- (e4.south);
+
+% Arrows: experts to output (only top-k)
+\draw[arrow, color=expertsred, line width=1.5pt] (e1.north) -| (-3,6.8) node[midway, above, font=\tiny] {$g_1 \cdot E_1$} |- (output.west);
+\draw[arrow, color=expertsgreen, line width=1.5pt] (e3.north) -- (output.south) node[midway, right, font=\tiny] {$g_3 \cdot E_3$};
+\draw[arrow, color=expertsblue, line width=1.5pt] (en.north) -| (4,6.8) node[midway, above, font=\tiny] {$g_N \cdot E_N$} |- (output.east);
+
+% Bracket annotation for top-k
+\draw[red, dashed, thick, rounded corners=3pt] (-5.7,4.2) rectangle (6.7,5.4);
+\node[font=\small\bfseries, color=red] at (0.5,3.7) {Top-$k$ Selected Experts};
+
+\end{tikzpicture}
+\caption{\textbf{Architecture of a Mixture of Experts (MoE) model.} The gating network $G$ produces sparse weights $g_i$ for each expert $E_i$. Only the top-$k$ experts (solid purple arrows) are activated for each input, while others (dashed, near-zero weights) remain dormant. The output is the weighted sum of activated expert outputs: $y = \sum_{i \in \text{TopK}} g_i \cdot E_i(\mathbf{x})$.}
+\label{fig:moe_architecture}
+\end{figure}

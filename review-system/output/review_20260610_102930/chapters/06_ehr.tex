@@ -1,0 +1,27 @@
+
+\section*{MoE in Electronic Health Record Analysis}
+\addcontentsline{toc}{section}{MoE in Electronic Health Record Analysis}
+
+Electronic health records (EHRs) constitute one of the richest and most complex data sources in healthcare, containing longitudinal patient trajectories that span demographics, diagnoses, procedures, medications, laboratory results, and clinical notes. The heterogeneity and temporal complexity of EHR data present both challenges and opportunities for MoE architectures, which can decompose the complexity of patient modeling into manageable, specialized components.
+
+\subsection*{Multi-task clinical prediction}
+
+Clinical decision-making typically requires simultaneous assessment of multiple outcomes: risk of mortality, likelihood of readmission, probability of adverse drug events, and progression of comorbidities. Training separate models for each prediction task is inefficient and fails to exploit shared clinical knowledge. MoE-based multi-task learning addresses this by maintaining shared experts that capture general clinical patterns and task-specific experts that focus on particular prediction objectives.
+
+The fundamental insight is that different clinical tasks require different representations of the same patient data. For mortality prediction, vital sign trajectories may be most informative; for readmission risk, social determinants and discharge planning factors may dominate; for adverse drug events, medication interactions and renal function may be critical. MoE architectures naturally capture this by routing patient representations through different expert pathways for different tasks, achieving both parameter efficiency and improved prediction accuracy \cite{rajkomar2018ehr_deep}.
+
+\subsection*{Temporal modeling with MoE}
+
+EHR data is inherently temporal, with patient states evolving over time in complex, non-linear patterns. Different temporal patterns may be relevant for different clinical scenarios: acute deterioration follows rapid trajectories, chronic disease progression exhibits gradual trends, and medication responses show characteristic time courses. MoE architectures can specialize different experts for different temporal scales and patterns, enabling more nuanced modeling of patient trajectories.
+
+In time-series analysis of clinical data, MoE-based models have been developed where experts specialize in different temporal regimes: one expert may focus on short-term fluctuations (hours to days) relevant for acute care decisions, while another captures long-term trends (months to years) relevant for chronic disease management. The gating network learns to identify the temporal regime of each patient segment and route it to the appropriate expert, achieving superior prediction performance compared to models with uniform temporal modeling.
+
+\subsection*{Handling missing and irregular data}
+
+Missing data is endemic in EHR systems, as clinical measurements are ordered based on clinical judgment rather than research protocols. Different data types have different missingness patterns: laboratory tests are ordered selectively, vital signs are measured at varying frequencies, and clinical notes are written asynchronously. MoE architectures can address this by maintaining experts that are robust to different missingness patterns, with the gating network learning to route patients based on their available data modalities.
+
+\subsection*{Patient stratification and subgroup discovery}
+
+An important application of MoE in EHR analysis is patient stratification, where the expert assignments themselves reveal clinically meaningful patient subgroups. By analyzing which experts are activated for different patients, clinicians can identify subgroups that share similar clinical trajectories but may not be captured by traditional diagnostic categories. This data-driven subgroup discovery can inform personalized treatment strategies and reveal previously unrecognized disease phenotypes.
+
+The expert utilization patterns in MoE models trained on EHR data have been shown to correlate with known clinical subtypes, providing a form of interpretable patient clustering. For example, in sepsis prediction, different experts may specialize in different sepsis etologies (pulmonary, urinary, abdominal), and the routing patterns can provide clinicians with insights into the likely source of infection alongside the prediction of sepsis risk.

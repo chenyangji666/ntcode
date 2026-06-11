@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+\centering
+\caption{Benchmark performance summary of representative methods across the four stages of the spatial transcriptomics resolution enhancement pipeline. Accuracy ratings are based on published benchmarking studies; speed categories reflect typical runtime on a standard Visium dataset (approximately 4,000 spots).}
+\label{tab:benchmark}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\textbf{Stage} & \textbf{Method} & \textbf{Accuracy} & \textbf{Speed} & \textbf{Uncertainty} \\
+\midrule
+\multirow{4}{*}{I (Deconvolution)}
+& cell2location & High & Slow & Yes (posterior) \\
+& RCTD & High & Fast & No \\
+& CARD & High & Fast & No \\
+& STdeconvolve & Moderate & Fast & No \\
+\midrule
+\multirow{3}{*}{II (Mapping)}
+& Tangram & Moderate & Fast & No \\
+& CellTrek & Moderate & Moderate & No \\
+& CytoSPACE & High & Fast & No \\
+\midrule
+\multirow{3}{*}{III (Reconstruction)}
+& Redeconve & Moderate & Fast & No \\
+& SpatialScope & High & Slow & Yes (sampling) \\
+& CellMap & High & Slow & No \\
+\midrule
+\multirow{3}{*}{IV (Multi-modal)}
+& Cellpose & N/A (segmentation) & Fast & No \\
+& BayesSpace & High & Moderate & Yes (posterior) \\
+& CellRefiner & High & Slow & No \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,19 @@
+\section{Limitations and Open Challenges}
+\label{sec:limitations}
+
+Five fundamental challenges remain unresolved and limit the reliability of computational resolution enhancement.
+
+\textbf{1. Reference dependence and incompleteness.}
+The vast majority of methods require a single-cell reference that is complete, well-annotated, and technology-matched. In practice, references are often built from different donors, tissues, or experimental conditions than the spatial data, introducing systematic biases. Rare cell types---which may be biologically critical (e.g., cancer stem cells, tissue-resident memory T~cells)---are frequently under-represented or absent. No computational method can recover what the reference does not contain.
+
+\textbf{2. Cell-count estimation.}
+Per-spot cell number is a critical input for Stages~II--IV but is rarely measured directly. Image-based estimates depend on segmentation quality, which varies with tissue type, staining protocol, and imaging resolution. Errors in cell counts propagate multiplicatively through the pipeline: overestimating cell number creates phantom cells with hallucinated expression, while underestimating it forces multiple cells' signals into single profiles.
+
+\textbf{3. Technology and batch effects.}
+Systematic differences between scRNA-seq and spatial capture---in gene detection sensitivity, 3$'$ bias, UMI saturation, and ambient RNA contamination---mean that reference signatures do not directly match spatial observations. While some methods explicitly model platform effects (e.g., RCTD's platform-effect correction), many assume that reference and spatial data are drawn from the same generative process, leading to biased proportion estimates.
+
+\textbf{4. Lack of standardised benchmarks.}
+The field lacks agreed-upon evaluation protocols. Published benchmarks use different datasets, metrics, preprocessing pipelines, and ground-truth definitions, making cross-study comparison unreliable. For Stage~III in particular, no consensus metric captures both per-gene accuracy and global distributional fidelity. Community-curated benchmark suites---analogous to those in single-cell analysis (e.g., scIB)---are urgently needed.
+
+\textbf{5. Over-claim risk in pseudo single-cell reconstruction.}
+Stage~III outputs superficially resemble real single-cell data and can be fed into standard scRNA-seq analysis pipelines (clustering, differential expression, trajectory inference). This creates a temptation to treat reconstructed cells as observations, drawing biological conclusions that the reconstruction's assumptions cannot support. The field needs clearer reporting standards that distinguish model outputs from measurements and that propagate reconstruction uncertainty into downstream statistical tests.

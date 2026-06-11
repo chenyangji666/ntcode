@@ -1,0 +1,50 @@
+\section{Unified Comparison and Practical Guidance}
+\label{sec:comparison}
+
+The preceding sections have presented methods organised by their position in the four-stage pipeline. Here we step back to provide a unified view that helps practitioners choose the right tool for their specific analytical context.
+
+\subsection{Two-axis taxonomy of methods}
+
+We propose a two-dimensional classification framework (Figure~3) that organises all reviewed methods along two orthogonal axes:
+
+\begin{itemize}
+  \item \textbf{Output resolution} (vertical axis): what spatial granularity does the method produce? Options range from spot-level proportions (Stage~I), through mapped cells at spot coordinates (Stage~II), to per-cell expression at sub-spot positions (Stage~III), and enhanced sub-spot estimates (Stage~IV).
+  \item \textbf{Information source} (horizontal axis): what external data does the method require? Categories include reference-only (scRNA-seq), image-only (histology), reference + image, coordinate-aware (spatial prior without image), and reference-free.
+\end{itemize}
+
+This taxonomy reveals several patterns. First, higher output resolution generally requires more information sources: Stage~III methods universally require a scRNA-seq reference, and the best-performing ones additionally exploit images. Second, the reference-free quadrant is sparsely populated and limited to Stage~I outputs, reflecting the fundamental difficulty of achieving single-cell resolution without external anchoring. Third, image-guided methods span all four stages, suggesting that histology integration is a general-purpose enhancement rather than a stage-specific technique.
+
+\subsection{Benchmark-driven performance overview}
+
+\input{tables/tab3-benchmark}
+
+Systematic benchmarking studies have evaluated subsets of these methods on shared datasets, though no single benchmark covers all four stages. Key observations from published comparisons include:
+
+\begin{itemize}
+  \item For Stage~I, cell2location and RCTD consistently rank among the top performers across diverse tissues, with CARD showing particular strength on spatially structured data.
+  \item For Stage~II, CytoSPACE's one-to-one assignment produces more interpretable results than Tangram's soft mapping when cell counts are accurately estimated, but Tangram is more robust to count misspecification.
+  \item For Stage~III, evaluation is hampered by the scarcity of ground-truth data; methods that incorporate image information (CellRefiner) show improved spatial coherence but have not been extensively compared on standardised benchmarks.
+  \item Cross-stage comparisons are largely absent: it remains unclear whether a Stage~III reconstruction outperforms a Stage~I deconvolution followed by Stage~II mapping for specific downstream tasks.
+\end{itemize}
+
+\subsection{Method selection decision tree}
+
+Based on the taxonomy and benchmark evidence, we propose a practical decision tree (Figure~4) that guides method selection through a series of binary questions about the user's data and analytical goals. The tree is structured around five key decision points corresponding to Box~2.
+
+\input{boxes/box2-decision}
+
+The decision tree is intentionally conservative: it recommends well-validated methods (cell2location, RCTD, Tangram, CytoSPACE) as defaults and reserves newer or more complex methods (SpatialScope, CellMap, CellRefiner) for cases where their additional assumptions are justified by the available data. We emphasise that no single method is universally optimal, and running multiple complementary approaches (for example, a probabilistic deconvolution alongside a mapping method) provides robustness through consensus.
+
+\subsection{Common pitfalls in method selection}
+
+Several recurring mistakes in method selection deserve explicit mention:
+
+\textbf{Applying Stage~III without validating Stage~I.} Pseudo single-cell reconstruction depends on accurate deconvolution as input. If proportion estimates are poor (e.g., due to reference mismatch), reconstruction amplifies rather than corrects these errors. Users should first verify deconvolution quality against known tissue biology before proceeding to reconstruction.
+
+\textbf{Using reference-free methods when a reference exists.} Reference-free approaches (STdeconvolve, BayesTME) are designed for situations where no scRNA-seq data are available. When a reference exists, even an imperfect one, reference-based methods consistently outperform reference-free alternatives. The flexibility of reference-free methods does not compensate for their loss of biological anchoring.
+
+\textbf{Ignoring platform effects.} Directly using a 10x Chromium scRNA-seq reference with Slide-seq spatial data without platform-effect correction introduces systematic bias. Methods that explicitly model technology differences (RCTD, cell2location) should be preferred over those that assume identical generative processes.
+
+\textbf{Over-interpreting reconstructed rare cells.} When a cell type constitutes $<$5\% of a spot's composition, its reconstructed expression profile is dominated by the regularisation prior (i.e., the reference template) rather than by the spatial signal. Biological conclusions about rare populations from reconstructed data require independent validation.
+
+\textbf{Neglecting cell-count uncertainty.} Methods that require per-spot cell counts (CytoSPACE, CellRefiner) are sensitive to segmentation errors. Running the analysis with $\pm$20\% perturbation of estimated counts and checking result stability is a simple but often omitted robustness check.

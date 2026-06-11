@@ -1,0 +1,18 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented a systematic review of computational methods for enhancing spatial transcriptomics resolution from the spot level to single-cell granularity, organised as a four-stage pipeline. Five key messages emerge:
+
+\begin{enumerate}
+  \item \textbf{Single-cell resolution from spot data is achievable through a staged pipeline, not a single method.} Each stage builds on the outputs of its predecessors, and the choice of methods at each stage should be coordinated rather than made in isolation.
+
+  \item \textbf{No universal best method exists.} Performance depends on tissue complexity, reference quality, available modalities, and the specific downstream analysis. The decision tree and taxonomy presented here (Section~\ref{sec:comparison}) provide structured guidance for method selection.
+
+  \item \textbf{Pseudo single-cell reconstruction is powerful but bounded.} Stage~III methods can produce spatially resolved cell-type maps and niche-level expression gradients, but they cannot recover cell states absent from the reference, replace real single-cell measurements for causal claims, or resolve molecular stochasticity (Box~1).
+
+  \item \textbf{Validation and benchmarking lag behind method development.} The field needs standardised datasets with matched multi-platform ground truth, agreed-upon metrics, and community-curated evaluation protocols to enable reliable method comparison.
+
+  \item \textbf{Higher-resolution platforms will not eliminate computational reconstruction.} Visium HD and subcellular sequencing reframe rather than solve the resolution problem, and the large corpus of existing Visium data ensures continued demand for computational enhancement. Meanwhile, the integration of sequencing-based and imaging-based platforms offers a practical path toward validated, transcriptome-wide single-cell spatial atlases.
+\end{enumerate}
+
+As spatial transcriptomics becomes routine in biological and clinical research, the computational methods reviewed here will be central to extracting cell-level information from spot-level data. We encourage practitioners to adopt the staged framework presented here, to match method complexity to data quality, and to maintain clear distinctions between computational reconstructions and direct measurements.

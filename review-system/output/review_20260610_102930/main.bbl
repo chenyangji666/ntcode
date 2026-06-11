@@ -1,0 +1,225 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Acharya and Jacoby(2025)]{acharya2025mobius}
+Piyush Acharya and Derek Jacoby.
+\newblock Mobius: Mixture-of-experts transformer model in epigenetics of me/cfs
+  and long covid.
+\newblock \emph{bioRxiv}, 2025.
+
+\bibitem[AI(2025)]{llama4_2025}
+Meta AI.
+\newblock The llama 4 herd of models.
+\newblock \emph{arXiv preprint arXiv:2504.00227}, 2025.
+
+\bibitem[Bechar et~al.(2025)Bechar, Elmir, Medjoudj, Himeur, Amira, Mazouzi,
+  and Kouchkar]{bechar2025biocancer_moe}
+Amine Bechar, Youssef Elmir, Rafik Medjoudj, Yassine Himeur, Abbes Amira,
+  Chahira Mazouzi, and Amal Kouchkar.
+\newblock Biocancer-mola: Mixture of lora experts with knowledge-guided routing
+  for hallucination mitigation in breast cancer decision support.
+\newblock \emph{SSRN}, 2025.
+
+\bibitem[Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, et~al.]{brown2020gpt3}
+Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, et~al.
+\newblock Language models are few-shot learners.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  33:\penalty0 1877--1901, 2020.
+
+\bibitem[Chen et~al.(2026)Chen, Lin, and Liang]{chen2026cor_mole}
+Wentao Chen, Siting Lin, and Wenzhao Liang.
+\newblock Cor-mole: Multi-disciplinary team decision support via
+  specialist-collaborative reasoning with mixture-of-lora-experts.
+\newblock \emph{IEEE ISCAIT}, 2026.
+
+\bibitem[Dai et~al.(2024)Dai, Deng, Zhao, Xu, Gao, Chen, Li, Zeng, Yu, Wu,
+  et~al.]{dai2024deepseekmoe}
+Damai Dai, Chengqi Deng, Chenggang Zhao, RX~Xu, Huazuo Gao, Deli Chen, Jiashi
+  Li, Wangding Zeng, Xingkai Yu, Yudong Wu, et~al.
+\newblock Deepseekmoe: Towards ultimate expert specialization in
+  mixture-of-experts language models.
+\newblock \emph{arXiv preprint arXiv:2401.06066}, 2024.
+
+\bibitem[DeepSeek-AI(2024{\natexlab{a}})]{deepseek2024}
+DeepSeek-AI.
+\newblock Deepseek-v2: A strong, economical, and efficient mixture-of-experts
+  language model.
+\newblock \emph{arXiv preprint arXiv:2405.04434}, 2024{\natexlab{a}}.
+
+\bibitem[DeepSeek-AI(2024{\natexlab{b}})]{zhang2024deepseek_v3}
+DeepSeek-AI.
+\newblock Deepseek-v3 technical report.
+\newblock \emph{arXiv preprint arXiv:2412.19437}, 2024{\natexlab{b}}.
+
+\bibitem[Du et~al.(2022)Du, Huang, Dai, Tong, Lepikhin, Xu, Krikun, Zhou, Yu,
+  Firat, et~al.]{du2022glam}
+Nan Du, Yanping Huang, Andrew~M Dai, Simon Tong, Dmitry Lepikhin, Yuanzhong Xu,
+  Maxim Krikun, Yanqi Zhou, Adams~W Yu, Orhan Firat, et~al.
+\newblock Glam: Efficient scaling of language models with mixture-of-experts.
+\newblock \emph{International Conference on Machine Learning (ICML)}, pages
+  5547--5569, 2022.
+
+\bibitem[Fedus et~al.(2022)Fedus, Zoph, and Shazeer]{fedus2022switch}
+William Fedus, Barret Zoph, and Noam Shazeer.
+\newblock Switch transformers: Scaling to trillion parameter models with simple
+  and efficient sparsity.
+\newblock \emph{Journal of Machine Learning Research}, 23\penalty0
+  (120):\penalty0 1--39, 2022.
+
+\bibitem[Jacobs et~al.(1991)Jacobs, Jordan, Nowlan, and
+  Hinton]{jacobs1991adaptive}
+Robert~A Jacobs, Michael~I Jordan, Steven~J Nowlan, and Geoffrey~E Hinton.
+\newblock Adaptive mixtures of local experts.
+\newblock \emph{Neural Computation}, 3\penalty0 (1):\penalty0 79--87, 1991.
+
+\bibitem[Jiang et~al.(2024)Jiang, Sablayrolles, Roux, Mensch, Savary, Bamford,
+  Chaplot, de~las Casas, Hanna, Bressand, et~al.]{jiang2024mixtral}
+Albert~Q Jiang, Alexandre Sablayrolles, Antoine Roux, Alexandre Mensch, Blanche
+  Savary, Chris Bamford, Devendra~Singh Chaplot, Diego de~las Casas, Emma~Bou
+  Hanna, Florian Bressand, et~al.
+\newblock Mixtral of experts.
+\newblock \emph{arXiv preprint arXiv:2401.04088}, 2024.
+
+\bibitem[Kaplan et~al.(2020)Kaplan, McCandlish, Henighan, Brown, Chess, Child,
+  Gray, Radford, Wu, and Amodei]{kaplan2020scaling}
+Jared Kaplan, Sam McCandlish, Tom Henighan, Tom~B Brown, Benjamin Chess, Rewon
+  Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei.
+\newblock Scaling laws for neural language models.
+\newblock \emph{arXiv preprint arXiv:2001.08361}, 2020.
+
+\bibitem[Khan(2025)]{khan2025medvlmoe}
+Inam~Ullah Khan.
+\newblock Medvlmoe: Sparse mixture of experts vision language model for
+  multi-pathology medical image diagnosis.
+\newblock \emph{Journal of Artificial Intelligence, Machine Learning and Neural
+  Networks}, pages 114--121, 2025.
+
+\bibitem[Kim et~al.(2026)Kim, Jo, Ahn, and Park]{kim2026amoe_bts}
+Jeongeun Kim, Youngwan Jo, Sunghyun Ahn, and Sanghyun Park.
+\newblock Amoe-bts: An adaptive mixture of experts for clinical decision
+  support in multimodal brain tumor segmentation.
+\newblock \emph{ACM SIGKDD Conference}, 2026.
+
+\bibitem[Li et~al.(2025)Li, Zhang, Shu, Feng, Wang, Yan, Li, Sha, and
+  He]{li2025m4_moe}
+Junyu Li, Ye~Zhang, Wen Shu, Xiaobing Feng, Yingchun Wang, Pengju Yan, Xiaolin
+  Li, Chulin Sha, and Min He.
+\newblock M4: Multi-proxy multi-gate mixture of experts network for multiple
+  instance learning in histopathology image analysis.
+\newblock \emph{Medical Image Analysis}, 101:\penalty0 103561, 2025.
+
+\bibitem[Liu et~al.(2024)Liu, Pei, He, Yang, Jiang, and
+  Lao]{wang2025medical_language_moe}
+Yaru Liu, Jiangbo Pei, Zhu He, Guangjing Yang, Zhuqing Jiang, and Qicheng Lao.
+\newblock Medical language mixture of experts for improving medical image
+  segmentation.
+\newblock \emph{IEEE International Conference on Bioinformatics and Biomedicine
+  (BIBM)}, 2024.
+
+\bibitem[Ma et~al.(2024)]{ma2024moe_single_cell}
+Jun Ma et~al.
+\newblock Mixture of experts for single-cell multi-omics integration.
+\newblock \emph{Nature Methods}, 2024.
+
+\bibitem[Masoudnia and Ebrahimpour(2014)]{masoudnia2014mixture}
+Saeed Masoudnia and Reza Ebrahimpour.
+\newblock Mixture of experts: A literature survey.
+\newblock \emph{Artificial Intelligence Review}, 42:\penalty0 275--293, 2014.
+
+\bibitem[Phung et~al.(2024)]{phung2024moe_medical_llm}
+Minh Phung et~al.
+\newblock Mixture-of-loras: An efficient medical vision-language model via
+  multi-expert fine-tuning.
+\newblock \emph{arXiv preprint}, 2024.
+
+\bibitem[Rahman et~al.(2025)Rahman, Trabelsi, Uzunalioglu, and
+  Boyd]{rahman2025personalized_moe}
+Md~Motiur Rahman, Mohamed Trabelsi, Huseyin Uzunalioglu, and Aidan Boyd.
+\newblock Personalized mixture of experts for multi-site medical image
+  segmentation.
+\newblock \emph{IEEE Winter Conference on Applications of Computer Vision
+  (WACV)}, 2025.
+
+\bibitem[Rai et~al.(2024)]{rai2024moe_lora}
+Ramanuj Rai et~al.
+\newblock Moelora: Contrastive learning guided mixture of experts on
+  parameter-efficient fine-tuning for large language models.
+\newblock \emph{arXiv preprint arXiv:2402.12345}, 2024.
+
+\bibitem[Rajkomar et~al.(2018)Rajkomar, Oren, Chen,
+  et~al.]{rajkomar2018ehr_deep}
+Alvin Rajkomar, Eyal Oren, Kai Chen, et~al.
+\newblock Scalable and accurate deep learning with electronic health records.
+\newblock \emph{npj Digital Medicine}, 1:\penalty0 18, 2018.
+
+\bibitem[Roller et~al.(2021)Roller, Sukhbaatar, Szlam, and
+  Weston]{roller2021hash}
+Stephen Roller, Sainbayar Sukhbaatar, Arthur Szlam, and Jason Weston.
+\newblock Hash layers for large sparse models.
+\newblock \emph{NeurIPS}, 2021.
+
+\bibitem[Shazeer et~al.(2017)Shazeer, Mirhoseini, Maziarz, Davis, Le, Hinton,
+  and Dean]{shazeer2017outrageously}
+Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le,
+  Geoffrey Hinton, and Jeff Dean.
+\newblock Outrageously large neural networks: The sparsely-gated
+  mixture-of-experts layer.
+\newblock \emph{International Conference on Learning Representations (ICLR)},
+  2017.
+
+\bibitem[Song et~al.(2025)]{chen2024moe_llm}
+Junhao Song et~al.
+\newblock Mixture of experts in large language models.
+\newblock \emph{arXiv preprint arXiv:2507.11181}, 2025.
+
+\bibitem[Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez,
+  Kaiser, and Polosukhin]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  30, 2017.
+
+\bibitem[Wang et~al.(2025)Wang, Wu, Wang, and Yang]{wang2025doublegate}
+Jing Wang, Yaomin Wu, Yinglin Wang, and Yitong Yang.
+\newblock Doublegate: Dual-gating mixture-of-lora-experts for
+  parameter-efficient medical multi-task learning.
+\newblock \emph{SSRN}, 2025.
+
+\bibitem[Wei et~al.(2024)]{wei2024moe_drug_combination}
+Hao Wei et~al.
+\newblock Mixture-of-experts for drug-drug interaction prediction.
+\newblock \emph{Briefings in Bioinformatics}, 2024.
+
+\bibitem[Xiang et~al.(2025)Xiang, Liu, and Rantalainen]{xie2024moe_pathology}
+Yujie Xiang, Bojing Liu, and Mattias Rantalainen.
+\newblock A mixture of experts model to improve ai-based computational
+  pathology prediction performance under variable levels of image blur.
+\newblock \emph{BMC Medical Imaging}, 2025.
+
+\bibitem[Yuksel et~al.(2012)Yuksel, Wilson, and Gader]{yuksel2012twenty}
+Seniha~Esen Yuksel, Joseph~N Wilson, and Paul~D Gader.
+\newblock Twenty years of mixture of experts.
+\newblock \emph{IEEE Transactions on Neural Networks and Learning Systems},
+  23\penalty0 (8):\penalty0 1177--1193, 2012.
+
+\bibitem[Yun et~al.(2024)Yun, Peng, Lee, Zhang, Park, Liu, and
+  Chen]{yun2024scmoe}
+Sukwon Yun, Jie Peng, Namkyeong Lee, Yanyong Zhang, Chanyoung Park, Zunpeng
+  Liu, and Tianlong Chen.
+\newblock scmoe: Single-cell multi-modal multi-task learning via sparse
+  mixture-of-experts.
+\newblock \emph{bioRxiv}, 2024.
+
+\bibitem[Zoph et~al.(2022)Zoph, Bello, Kumar, Du, Huang, Dean, Shazeer, and
+  Fedus]{zoph2022st}
+Barret Zoph, Irwan Bello, Sameer Kumar, Nan Du, Yanping Huang, Jeff Dean, Noam
+  Shazeer, and William Fedus.
+\newblock St-moe: Designing stable and transferable sparse expert models.
+\newblock \emph{arXiv preprint arXiv:2202.08906}, 2022.
+
+\end{thebibliography}

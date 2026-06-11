@@ -1,0 +1,69 @@
+\section{Spatial Organization of CAFs in Breast Tumours}
+\label{sec:spatial}
+
+The spatial distribution of CAF subpopulations within breast tumours is not random but reflects organized niches with distinct functional roles. Spatial transcriptomics and multiplexed imaging technologies have begun to map this spatial architecture, revealing how CAF positioning influences tumour biology.
+
+\subsection{Spatial transcriptomics reveals CAF niches}
+
+Spatial transcriptomics platforms (Visium, MERFISH, Xenium) enable simultaneous measurement of gene expression and spatial coordinates, allowing CAF subpopulations to be mapped to specific tissue regions \citep{stahl2016visualization}.
+
+\citet{wu2020single} combined scRNA-seq with Visium spatial transcriptomics to map CAF distributions in breast tumours, identifying three distinct spatial niches:
+
+\begin{itemize}
+  \item \textbf{Peritumoural niche}: immediately adjacent to tumour cells, dominated by myCAFs expressing high levels of collagen and $\alpha$-SMA. This niche is characterized by stiff, aligned collagen fibres that facilitate tumour cell invasion.
+  \item \textbf{Invasive front}: at the tumour--stroma boundary, enriched for iCAFs and apCAFs. This niche is the primary site of tumour--immune cell interaction and contains the highest density of infiltrating lymphocytes.
+  \item \textbf{Distant stroma}: well away from tumour cells, containing quiescent fibroblasts and a small population of iCAFs. This niche may serve as a reservoir for CAF precursors that are recruited to the tumour as it expands.
+\end{itemize}
+
+This spatial organization is not static but evolves during tumour progression. Longitudinal spatial analyses in mouse models have shown that the peritumoural niche expands as tumours grow, with progressive recruitment of iCAFs to the invasive front \citep{erve2024}.
+
+\subsection{Spatial co-localization with immune cells}
+
+Spatial transcriptomics has revealed that CAF subpopulations are not uniformly distributed relative to immune cells but show specific co-localization patterns:
+
+\textbf{iCAFs and macrophages:} iCAFs are frequently co-localized with tumour-associated macrophages (TAMs), particularly in the invasive front niche. This spatial proximity facilitates paracrine signalling: iCAF-secreted CCL2 recruits monocytes that differentiate into TAMs, while TAM-secreted TGF-$\beta$ maintains iCAF activation \citep{qian2011}.
+
+\textbf{apCAFs and T cells:} apCAFs show the strongest spatial association with CD4+ T cells, consistent with their antigen-presenting function. Single-cell spatial analyses have revealed direct cell--cell contacts between apCAFs and T cells at the tumour--immune interface, suggesting active antigen presentation \citep{erve2024}.
+
+\textbf{myCAFs and tumour cells:} myCAFs form a physical barrier around tumour cell clusters, creating a ``fibrotic capsule'' that may limit immune cell infiltration. This spatial arrangement has been termed ``immune exclusion'' and is associated with resistance to immunotherapy \citep{chhabra2023}.
+
+\subsection{Imaging-based spatial proteomics}
+
+Beyond transcriptomics, imaging-based technologies (CODEX, IMC, MIBI-TOF) enable simultaneous measurement of 40+ proteins at single-cell resolution, providing complementary spatial information to transcriptomic approaches \citep{goltsev2018deep}.
+
+\citet{keren2018structured} used multiplexed ion beam imaging (MIBI) to map the spatial proteome of breast tumours, revealing that CAFs expressing podoplanin (PDPN) and $\alpha$-SMA form distinct spatial clusters with different immune cell compositions. PDPN+ CAFs were preferentially located near CD8+ T cells, while $\alpha$-SMA+ CAFs were associated with macrophages.
+
+These imaging-based approaches provide spatial information at subcellular resolution that is complementary to the whole-transcriptome coverage of spatial transcriptomics. Integration of both modalities offers a comprehensive view of CAF spatial biology, though technical challenges in data alignment and cross-platform normalization remain.
+
+\subsection{Spatial gradients and niche boundaries}
+
+Spatial transcriptomics has revealed that CAF subpopulations are not abruptly demarcated but form gradients across tissue regions. This is particularly evident for the myCAF--iCAF transition, which occurs over a distance of 100--200~$\mu$m from the tumour border \citep{erve2024}.
+
+These spatial gradients likely reflect diffusion gradients of tumour-derived signals (TGF-$\beta$, IL-6, TNF-$\alpha$) that drive differential CAF activation. The steepness of these gradients varies across tumours and is influenced by vascular density, ECM composition, and interstitial fluid pressure.
+
+Understanding spatial gradients has important implications for therapy: interventions that alter the signalling landscape (e.g., anti-TGF-$\beta$ therapy) may reshape CAF spatial organization, potentially converting an immunosuppressive niche into an immunostimulatory one.
+
+\subsection{Spatial transcriptomics-guided CAF subtyping}
+
+The integration of scRNA-seq with spatial transcriptomics has enabled spatially resolved CAF subtyping that goes beyond the classical myCAF/iCAF/apCAF classification. \citet{erve2024} identified six spatially distinct CAF states in breast tumours, each with a unique spatial niche and functional programme:
+
+\begin{enumerate}
+  \item \textbf{ECM-myCAFs}: located in the peritumoural niche, producing dense collagen matrices.
+  \item \textbf{Contractile myCAFs}: found at the invasive front, generating mechanical forces for tissue remodelling.
+  \item \textbf{Inflammatory iCAFs}: distributed throughout the stroma, producing cytokines and chemokines.
+  \item \textbf{Regulatory iCAFs}: enriched near immune aggregates, expressing immune checkpoint ligands.
+  \item \textbf{apCAFs}: localized at the tumour--immune interface, presenting antigens to T cells.
+  \item \textbf{Quiescent fibroblasts}: found in distant stroma, maintaining tissue homeostasis.
+\end{enumerate}
+
+This spatially resolved subtyping provides a more nuanced understanding of CAF biology and may enable more precise therapeutic targeting of specific CAF subpopulations in defined spatial contexts.
+
+\subsection{Clinical implications of CAF spatial organization}
+
+The spatial distribution of CAFs has direct clinical relevance:
+
+\textbf{Prognostic significance:} High density of iCAFs at the invasive front is associated with poor prognosis in breast cancer, reflecting the pro-tumorigenic and immunosuppressive functions of these cells \citep{erve2024}. Conversely, high density of quiescent fibroblasts in the distant stroma is associated with better outcomes, suggesting a protective role.
+
+\textbf{Predictive value:} The spatial organization of CAFs may predict response to immunotherapy. Tumours with dense myCAF capsules surrounding tumour cell clusters (immune-excluded phenotype) show poor response to immune checkpoint inhibitors, while tumours with dispersed iCAFs and apCAFs (immune-infiltrated phenotype) respond better \citep{chhabra2023}.
+
+\textbf{Therapeutic implications:} Understanding CAF spatial organization may guide the design of CAF-targeted therapies. For example, therapies that disrupt the myCAF capsule may enhance immune cell infiltration, while therapies that reprogram iCAFs may reduce immunosuppression.

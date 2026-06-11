@@ -1,0 +1,24 @@
+
+\begin{table}[htbp]
+\centering
+\caption{\textbf{Comparison of major MoE architectural variants and their healthcare relevance.}}
+\label{tab:moe_variants}
+\small
+\begin{tabular}{@{}p{2.8cm}p{1.5cm}p{2cm}p{2.5cm}p{3.5cm}@{}}
+\toprule
+\textbf{Architecture} & \textbf{Experts} & \textbf{Routing} & \textbf{Key Feature} & \textbf{Healthcare Relevance} \\
+\midrule
+Original MoE \citep{jacobs1991adaptive} & Few & Soft gating & Modular decomposition & Patient stratification \\
+\midrule
+Sparse MoE \citep{shazeer2017outrageously} & Many & Top-$k$ & Conditional computation & Large-scale medical LLMs \\
+\midrule
+Switch Transformer \citep{fedus2022switch} & Many & Top-1 & Simplified routing & Efficient clinical inference \\
+\midrule
+Mixtral \citep{jiang2024mixtral} & 8 & Top-2 & Open-weight MoE & Medical NLP fine-tuning \\
+\midrule
+DeepSeek-MoE \citep{dai2024deepseekmoe} & Fine-grained & Top-$k$ & Shared + routed experts & Multi-task clinical prediction \\
+\midrule
+MoELoRA \citep{rai2024moe_lora} & Few & Learned gating & Parameter-efficient & Low-resource medical adaptation \\
+\bottomrule
+\end{tabular}
+\end{table}
